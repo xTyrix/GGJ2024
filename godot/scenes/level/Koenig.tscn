@@ -39,22 +39,23 @@ size = Vector2(183, 151)
 script = ExtResource("1_hg6kg")
 
 [node name="BG" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(961, 530)
 rotation = -1.5708
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_6rarn")
 
 [node name="Hufeisen" parent="." instance=ExtResource("4_xbmfj")]
+position = Vector2(1014, 606)
 active = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Hufeisen"]
-position = Vector2(1025, 609)
+position = Vector2(3, 5)
 rotation = -1.5708
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_rledt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hufeisen"]
-position = Vector2(1014.5, 602)
 shape = SubResource("RectangleShape2D_rqex1")
 
 [node name="Schluessel" parent="." instance=ExtResource("2_tjkxh")]
@@ -77,28 +78,24 @@ position = Vector2(182.5, 581)
 shape = SubResource("RectangleShape2D_nteqg")
 
 [node name="Buecher" parent="." instance=ExtResource("4_xbmfj")]
-position = Vector2(242, 528)
+position = Vector2(90, 531)
 active = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buecher"]
-position = Vector2(-143, -4)
 shape = SubResource("RectangleShape2D_wk388")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buecher"]
-position = Vector2(-156, 8)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("5_seb7v")
 
 [node name="Wolle" parent="." instance=ExtResource("4_xbmfj")]
-position = Vector2(-65.0938, 122.309)
+position = Vector2(573, 403)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wolle"]
-position = Vector2(646.094, 277.691)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("9_tdux6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wolle"]
-position = Vector2(647.094, 278.691)
 shape = SubResource("CircleShape2D_avpqg")
 
 [node name="Koenig" type="Node2D" parent="."]

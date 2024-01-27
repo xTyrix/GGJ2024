@@ -11,7 +11,7 @@ func _process(delta):
 	if active_sprite:
 		var pos = get_viewport().get_mouse_position();
 		active_sprite.position = pos + Vector2(10, 10)
-	
+
 func make_sprite_active(sprite):
 	sprite.get_parent().remove_child(sprite)
 	add_child(sprite)

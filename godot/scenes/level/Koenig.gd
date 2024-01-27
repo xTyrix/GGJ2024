@@ -10,17 +10,19 @@ func _ready():
 func _process(delta):
 	pass
 
-var has_hufeisen = true
+var cat_has_hufeisen = true
 func _on_cat_pressed():
-	if !has_hufeisen:
-		$inventory.make_sprite_active($Hufeisen)
+	if !cat_has_hufeisen:
+		pass # TODO miau
 		return
-	if $inventory.active_sprite_has_name("Wolle"):
-		has_hufeisen = false
-		$inventory.active_sprite.queue_free()
-		$inventory.active_sprite = null
+	if $Inventory.active_sprite_has_name("Wolle"):
+		cat_has_hufeisen = false
+		var wolle = $Inventory.active_sprite
+		$Inventory.active_sprite = null
+		wolle.queue_free()
+		$Hufeisen.active = true
+		$Inventory.make_sprite_active($Hufeisen)
 		$Cat/Wolle.visible = true
-		$Hufeisen.position.y += 350
 	else:
 		pass # TODO miau
 
