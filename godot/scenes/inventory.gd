@@ -37,7 +37,8 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			#print("inventory click")
-			if active_sprite:
+			if active_sprite and !active_sprite.was_just_put_away:
 				add_sprite_to_inventory(active_sprite)
 				active_sprite.active = true
+				active_sprite.just_taken = true
 				active_sprite = null
