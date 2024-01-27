@@ -60,12 +60,13 @@ metadata/_edit_group_ = true
 position = Vector2(-25.5, -23)
 shape = SubResource("RectangleShape2D_mdydn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Schrank"]
+[node name="SchrankClosed" type="Sprite2D" parent="Schrank"]
 position = Vector2(-25.75, -23.25)
 scale = Vector2(52.5, 47.5)
 texture = SubResource("PlaceholderTexture2D_gqb3t")
 
-[node name="SpriteOpen" type="Sprite2D" parent="Schrank"]
+[node name="SchrankOpen" type="Sprite2D" parent="Schrank"]
+visible = false
 
 [node name="Feder" parent="." instance=ExtResource("3_mwk54")]
 visible = false
@@ -99,3 +100,6 @@ shape = SubResource("CircleShape2D_f3fuv")
 shape = SubResource("RectangleShape2D_5i85s")
 
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
+[connection signal="pressed" from="FussTickle1" to="." method="_on_fuss_tickle_1_pressed"]
+[connection signal="pressed" from="FussTickle2" to="." method="_on_fuss_tickle_2_pressed"]
+[connection signal="pressed" from="FussTickle3" to="." method="_on_fuss_tickle_3_pressed"]
