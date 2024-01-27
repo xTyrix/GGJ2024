@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://ouix3th1cui8"]
+
+[ext_resource type="Script" path="res://scenes/level/Fuss.gd" id="1_h8w1w"]
+[ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_3jeid"]
+[ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_mwk54"]
+[ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="4_cgq6i"]
+
+[sub_resource type="GDScript" id="GDScript_0bo0e"]
+script/source = "class_name ClickableSchrank
+extends Area2D
+
+signal pressed
+
+@export var active = true
+
+var open = false
+
+var mouse_hover = false
+
+func _input(event):
+	if not (active and mouse_hover):
+		return
+
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			pressed.emit()
+
+func _on_mouse_entered():
+	mouse_hover = true
+
+func _on_mouse_exited():
+	mouse_hover = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdydn"]
+size = Vector2(51, 46)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gqb3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxhn6"]
+size = Vector2(32, 40)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dy46u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kbmoh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3fuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i85s"]
+
+[node name="Fuss" type="Node2D"]
+script = ExtResource("1_h8w1w")
+
+[node name="Schrank" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(357, 128)
+script = SubResource("GDScript_0bo0e")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Schrank"]
+position = Vector2(-25.5, -23)
+shape = SubResource("RectangleShape2D_mdydn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Schrank"]
+position = Vector2(-25.75, -23.25)
+scale = Vector2(52.5, 47.5)
+texture = SubResource("PlaceholderTexture2D_gqb3t")
+
+[node name="SpriteOpen" type="Sprite2D" parent="Schrank"]
+
+[node name="Feder" parent="." instance=ExtResource("3_mwk54")]
+visible = false
+position = Vector2(348, 54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feder"]
+position = Vector2(17, 21)
+shape = SubResource("RectangleShape2D_lxhn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Feder"]
+position = Vector2(17, 19)
+scale = Vector2(-33, 39)
+texture = SubResource("PlaceholderTexture2D_dy46u")
+
+[node name="Inventory" parent="." instance=ExtResource("4_cgq6i")]
+position = Vector2(365, 75)
+
+[node name="FussTickle1" parent="." instance=ExtResource("2_3jeid")]
+
+[node name="ToeCapsule" type="CollisionShape2D" parent="FussTickle1"]
+shape = SubResource("CapsuleShape2D_kbmoh")
+
+[node name="FussTickle2" parent="." instance=ExtResource("2_3jeid")]
+
+[node name="MidfootCircle" type="CollisionShape2D" parent="FussTickle2"]
+shape = SubResource("CircleShape2D_f3fuv")
+
+[node name="FussTickle3" parent="." instance=ExtResource("2_3jeid")]
+
+[node name="HindfootRectangle" type="CollisionShape2D" parent="FussTickle3"]
+shape = SubResource("RectangleShape2D_5i85s")
+
+[connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
