@@ -1,11 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6xgir6tnur82"]
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="3_mxbts"]
-[ext_resource type="Script" path="res://scenes/Item.gd" id="3_ywr3y"]
-=======
->>>>>>> 0c8cf200f4ab9e09e9bb77601615788ee03a8849
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygrm6"]
 size = Vector2(112, 104)
