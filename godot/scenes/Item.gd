@@ -11,5 +11,10 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	$/root/Inventory.add_to_inventory($Sprite2D)
+	var inventory
+	var current_node = self
+	while (!inventory):
+		inventory = current_node.get_node("inventory")
+		current_node = current_node.get_parent()
+	inventory.make_sprite_active(self)
 	
