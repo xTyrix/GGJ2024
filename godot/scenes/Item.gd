@@ -14,7 +14,7 @@ func _on_pressed():
 	var inventory
 	var current_node = self
 	while (!inventory):
-		inventory = current_node.get_node("Inventory")
+		inventory = current_node.get_node_or_null("Inventory")
 		current_node = current_node.get_parent()
 	inventory.make_sprite_active(self)
 	
