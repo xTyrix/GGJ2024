@@ -1,31 +1,151 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccwao5x8nsffy"]
+[gd_scene load_steps=21 format=3 uid="uid://ccwao5x8nsffy"]
 
+[ext_resource type="Script" path="res://scenes/level/Koenig.gd" id="1_hg6kg"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_tjkxh"]
+[ext_resource type="Texture2D" uid="uid://cf5vdnd04fr18" path="res://sprites/Thronsaal/Hufeisen.png" id="3_rledt"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_skkbb"]
+[ext_resource type="Texture2D" uid="uid://ywb31re0tn76" path="res://sprites/Thronsaal/Thronsaal_Hintergrund.png" id="4_6rarn"]
+[ext_resource type="Texture2D" uid="uid://dh2qox0r6f8u2" path="res://sprites/Thronsaal/Katze_ohne_Arm.png" id="4_s3no2"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="4_xbmfj"]
+[ext_resource type="Texture2D" uid="uid://dp0g5d2ywp4oe" path="res://sprites/Thronsaal/Arm_ohne_Katze.png" id="5_ery7o"]
+[ext_resource type="Texture2D" uid="uid://sjm6jiwk2ens" path="res://sprites/Thronsaal/Buecher_plus_minus.png" id="5_seb7v"]
+[ext_resource type="Texture2D" uid="uid://r68mohl7t3my" path="res://sprites/Thronsaal/Wollkneul.png" id="9_tdux6"]
+[ext_resource type="Texture2D" uid="uid://byloolhu4c1uo" path="res://sprites/Thronsaal/Koenig_ohne_Kopf.png" id="10_d8mpc"]
+[ext_resource type="Texture2D" uid="uid://c1mj32n7n182s" path="res://sprites/Thronsaal/Koenig_Kopf_sauer.png" id="11_txvx1"]
+[ext_resource type="Texture2D" uid="uid://cavwffwx2i6ws" path="res://sprites/Thronsaal/Szepter_ohne_Koenig.png" id="12_kve7y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_onwf1"]
-radius = 30.2655
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqex1"]
+size = Vector2(117, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m651f"]
+size = Vector2(87, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s14k3"]
+size = Vector2(299, 446)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nteqg"]
+size = Vector2(339, 638)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk388"]
+size = Vector2(88, 116)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avpqg"]
+radius = 35.1283
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr0tv"]
+size = Vector2(183, 151)
 
 [node name="Koenig" type="Node2D"]
+script = ExtResource("1_hg6kg")
 
-[node name="Hufeisen" parent="." instance=ExtResource("2_tjkxh")]
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(961, 530)
+rotation = -1.5708
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_6rarn")
+
+[node name="Hufeisen" parent="." instance=ExtResource("4_xbmfj")]
+active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Hufeisen"]
+position = Vector2(1025, 609)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_rledt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hufeisen"]
+position = Vector2(1014.5, 602)
+shape = SubResource("RectangleShape2D_rqex1")
 
 [node name="Schluessel" parent="." instance=ExtResource("2_tjkxh")]
+position = Vector2(-141, 187)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Schluessel"]
+position = Vector2(564.5, 826.5)
+shape = SubResource("RectangleShape2D_m651f")
 
 [node name="Ritter" parent="." instance=ExtResource("2_tjkxh")]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ritter"]
+position = Vector2(1671, 739)
+shape = SubResource("RectangleShape2D_s14k3")
+
 [node name="Schrank" parent="." instance=ExtResource("2_tjkxh")]
 
-[node name="inventory" parent="." instance=ExtResource("3_skkbb")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Schrank"]
+position = Vector2(182.5, 581)
+shape = SubResource("RectangleShape2D_nteqg")
 
 [node name="Buecher" parent="." instance=ExtResource("4_xbmfj")]
+position = Vector2(242, 528)
+active = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buecher"]
-position = Vector2(200, 138)
-shape = SubResource("CircleShape2D_onwf1")
+position = Vector2(-143, -4)
+shape = SubResource("RectangleShape2D_wk388")
 
-[connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="Buecher"]
+position = Vector2(-156, 8)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_seb7v")
+
+[node name="Wolle" parent="." instance=ExtResource("4_xbmfj")]
+position = Vector2(-65.0938, 122.309)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wolle"]
+position = Vector2(646.094, 277.691)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_tdux6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wolle"]
+position = Vector2(647.094, 278.691)
+shape = SubResource("CircleShape2D_avpqg")
+
+[node name="Koenig" type="Node2D" parent="."]
+position = Vector2(96, 45)
+
+[node name="King" type="Sprite2D" parent="Koenig"]
+position = Vector2(738, 619)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_d8mpc")
+
+[node name="Kopf" type="Sprite2D" parent="Koenig"]
+position = Vector2(746, 672)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_txvx1")
+
+[node name="Hand" type="Sprite2D" parent="Koenig"]
+position = Vector2(982, 688)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kve7y")
+
+[node name="Cat" parent="." instance=ExtResource("2_tjkxh")]
+
+[node name="Wolle" type="Sprite2D" parent="Cat"]
+visible = false
+position = Vector2(1012, 591)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_tdux6")
+
+[node name="Cat" type="Sprite2D" parent="Cat"]
+position = Vector2(1084, 555)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_s3no2")
+
+[node name="Paw" type="Sprite2D" parent="Cat"]
+position = Vector2(1100, 554)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_ery7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
+position = Vector2(1083.5, 553.5)
+shape = SubResource("RectangleShape2D_jr0tv")
+
+[node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
+
 [connection signal="pressed" from="Schluessel" to="." method="_on_schluessel_pressed"]
 [connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
+[connection signal="pressed" from="Cat" to="." method="_on_cat_pressed"]
