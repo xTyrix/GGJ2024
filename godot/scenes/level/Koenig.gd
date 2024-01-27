@@ -32,12 +32,25 @@ func _on_schluessel_pressed():
 
 
 func _on_ritter_pressed():
-	pass # Replace with function body.
+	if not $Inventory.active_sprite_has_name("Magnet"):
+		return
+
+	$Inventory.clear_active_sprite()
+
+	$Ritter2.visible = false
+	$RitterNackt.visible = true
+	$Koenig/Kopf.visible = false
+	$Koenig/KoenigKopfGluecklich.visible = true
 
 
 func _on_schrank_pressed():
-	pass # Replace with function body.
+	if not $Inventory.active_sprite_has_name("Schluessel"):
+		return
+		
+	$Inventory.clear_active_sprite()
 
+	$Tuer.visible = false
+	$Buecher.active = true
 
 func _on_buecher_pressed():
 	pass # Replace with function body.
