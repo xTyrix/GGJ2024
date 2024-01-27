@@ -61,7 +61,11 @@ func _on_buecher_pressed():
 	if not $Inventory.active_sprite_has_name("Hufeisen"):
 		return
 	$Inventory.clear_active_sprite()
-	$Buecher.queue_free()
+
+	if $Bucher == null:
+		$Inventory/InventoryArea/Area2D/Buecher.queue_free()
+	else:
+		$Buecher.queue_free()
 	
 	_create_magnet_active()
 
@@ -69,6 +73,10 @@ func _on_hufeisen_pressed():
 	if not $Inventory.active_sprite_has_name("Buecher"):
 		return
 	$Inventory.clear_active_sprite()
-	$Hufeisen.queue_free()
+
+	if $Hufeisen == null:
+		$Inventory/InventoryArea/Area2D/Hufeisen.queue_free()
+	else:
+		$Hufeisen.queue_free()
 
 	_create_magnet_active()
