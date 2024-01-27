@@ -10,4 +10,4 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	$/root/Inventory.make_sprite_active(self);
+	$/root/TestScene/Inventory.make_sprite_active(self);
