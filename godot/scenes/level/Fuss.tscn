@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://ouix3th1cui8"]
+[gd_scene load_steps=16 format=3 uid="uid://ouix3th1cui8"]
 
-[ext_resource type="Script" path="res://scenes/level/Fuss_meter.gd" id="1_tkoju"]
+[ext_resource type="Script" path="res://scenes/Item.gd" id="1_sqvro"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_3jeid"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_mwk54"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="4_cgq6i"]
@@ -49,8 +49,12 @@ size = Vector2(32, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i85s"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bik8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwe4n"]
+
 [node name="Fuss" type="Node2D"]
-script = ExtResource("1_tkoju")
+script = ExtResource("1_sqvro")
 
 [node name="Schrank" parent="." instance=ExtResource("2_3jeid")]
 position = Vector2(357, 128)
@@ -101,6 +105,22 @@ shape = SubResource("CircleShape2D_f3fuv")
 shape = SubResource("RectangleShape2D_5i85s")
 
 [node name="FussMeter" parent="." instance=ExtResource("5_3cahk")]
+
+[node name="Sprite2D" type="Sprite2D" parent="FussMeter"]
+
+[node name="Kaktus" parent="." instance=ExtResource("3_mwk54")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kaktus"]
+shape = SubResource("RectangleShape2D_bik8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Kaktus"]
+
+[node name="Sonnenblume" parent="." instance=ExtResource("3_mwk54")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sonnenblume"]
+shape = SubResource("RectangleShape2D_pwe4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sonnenblume"]
 
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
 [connection signal="pressed" from="FussTickle1" to="FussMeter" method="_on_fuss_tickle_1_pressed"]
