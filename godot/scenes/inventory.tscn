@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6xgir6tnur82"]
+[gd_scene load_steps=6 format=3 uid="uid://b6xgir6tnur82"]
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
+[ext_resource type="Script" path="res://scenes/InventoryArea.gd" id="2_kucnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygrm6"]
 size = Vector2(112, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25xv7"]
+size = Vector2(69, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op1u6"]
+size = Vector2(69, 61)
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_tmxrs")
 
 [node name="InventoryArea" type="Node2D" parent="."]
+script = ExtResource("2_kucnd")
 
 [node name="Polygon2D" type="Polygon2D" parent="InventoryArea"]
 z_index = -1
@@ -20,4 +28,20 @@ polygon = PackedVector2Array(448, 208, 448, 328, 576, 328, 576, 208)
 position = Vector2(512, 268)
 shape = SubResource("RectangleShape2D_ygrm6")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(128, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(416, 120)
+shape = SubResource("RectangleShape2D_25xv7")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(128, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(344, 56)
+shape = SubResource("RectangleShape2D_op1u6")
+
 [connection signal="input_event" from="InventoryArea/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="InventoryArea" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D2" to="InventoryArea" method="_on_area_2d_2_mouse_exited"]
