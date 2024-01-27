@@ -6,7 +6,6 @@ signal pressed
 @export var active = true
 
 func _on_input_event(viewport, event, shape_idx):
-	print("Hello")
 	if not active:
 		return
 
