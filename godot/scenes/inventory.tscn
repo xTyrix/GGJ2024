@@ -1,132 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6xgir6tnur82"]
+[gd_scene load_steps=3 format=3 uid="uid://b6xgir6tnur82"]
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="3_mxbts"]
 [ext_resource type="Script" path="res://scenes/Item.gd" id="3_ywr3y"]
+=======
+>>>>>>> 0c8cf200f4ab9e09e9bb77601615788ee03a8849
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu0xa"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2ag"]
-size = Vector2(16, 16)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_x7kd8"]
-seed = 5
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qyvml"]
-noise = SubResource("FastNoiseLite_x7kd8")
-
-[sub_resource type="Gradient" id="Gradient_tuosg"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ueytv"]
-noise_type = 4
-seed = 1
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yljf0"]
-color_ramp = SubResource("Gradient_tuosg")
-noise = SubResource("FastNoiseLite_ueytv")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygrm6"]
+size = Vector2(112, 104)
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_tmxrs")
 
-[node name="0" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(464, 224)
-metadata/_edit_group_ = true
+[node name="InventoryArea" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="0"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="1" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(488, 224)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="1"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="2" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(512, 224)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="2"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="3" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(536, 224)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="3"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="4" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(560, 224)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="4"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="5" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(464, 248)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="5"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="6" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(488, 248)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="6"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="7" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(512, 248)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="7"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="8" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(536, 248)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="8"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="9" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(560, 248)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="9"]
-shape = SubResource("RectangleShape2D_cu0xa")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="InventoryArea"]
 z_index = -1
 polygon = PackedVector2Array(448, 208, 448, 328, 576, 328, 576, 208)
 
-[node name="Area2D" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(32, 40)
-script = ExtResource("3_ywr3y")
-metadata/_edit_group_ = true
+[node name="Area2D" type="Area2D" parent="InventoryArea"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_bk2ag")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea/Area2D"]
+position = Vector2(512, 268)
+shape = SubResource("RectangleShape2D_ygrm6")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-scale = Vector2(0.03125, 0.03125)
-texture = SubResource("NoiseTexture2D_qyvml")
-
-[node name="Area2D2" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(104, 56)
-script = ExtResource("3_ywr3y")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("RectangleShape2D_bk2ag")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-scale = Vector2(0.03125, 0.03125)
-texture = SubResource("NoiseTexture2D_yljf0")
-
-[connection signal="pressed" from="Area2D" to="." method="_on_area_2d_pressed"]
-[connection signal="pressed" from="Area2D" to="Area2D" method="_on_pressed"]
-[connection signal="pressed" from="Area2D2" to="." method="_on_area_2d_pressed"]
-[connection signal="pressed" from="Area2D2" to="Area2D2" method="_on_pressed"]
+[connection signal="input_event" from="InventoryArea/Area2D" to="." method="_on_area_2d_input_event"]
