@@ -52,5 +52,23 @@ func _on_schrank_pressed():
 	$Tuer.visible = false
 	$Buecher.active = true
 
+func _create_magnet_active():
+	$Magnet.visible = true
+	
+	$Inventory.make_sprite_active($Magnet)
+
 func _on_buecher_pressed():
-	pass # Replace with function body.
+	if not $Inventory.active_sprite_has_name("Hufeisen"):
+		return
+	$Inventory.clear_active_sprite()
+	$Buecher.queue_free()
+	
+	_create_magnet_active()
+
+func _on_hufeisen_pressed():
+	if not $Inventory.active_sprite_has_name("Buecher"):
+		return
+	$Inventory.clear_active_sprite()
+	$Hufeisen.queue_free()
+
+	_create_magnet_active()

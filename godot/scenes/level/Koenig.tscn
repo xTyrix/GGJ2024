@@ -48,6 +48,7 @@ size = Vector2(183, 151)
 script = ExtResource("1_hg6kg")
 
 [node name="Magnet" parent="." instance=ExtResource("4_xbmfj")]
+visible = false
 position = Vector2(1272, 808)
 metadata/_edit_group_ = true
 
@@ -178,8 +179,6 @@ texture = ExtResource("5_ery7o")
 position = Vector2(1083.5, 553.5)
 shape = SubResource("RectangleShape2D_jr0tv")
 
-[node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
-
 [node name="RitterNackt" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1667.25, 743)
@@ -191,6 +190,10 @@ position = Vector2(1675.25, 751)
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("18_ilj61")
 
+[node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
+
+[connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
 [connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]
+[connection signal="pressed" from="Buecher" to="." method="_on_buecher_pressed"]
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
 [connection signal="pressed" from="Cat" to="." method="_on_cat_pressed"]
