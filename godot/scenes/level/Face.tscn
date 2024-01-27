@@ -1,16 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://caqmnyi1wmxb8"]
+[gd_scene load_steps=12 format=3 uid="uid://caqmnyi1wmxb8"]
 
 [ext_resource type="Script" path="res://scenes/level/Face.gd" id="1_t3j6b"]
+[ext_resource type="Texture2D" uid="uid://bl4bb77202wl6" path="res://sprites/Puzzlebox/Puzzlebox.png" id="2_0iexy"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="2_5y4mw"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_2bstn"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="4_w4tar"]
+[ext_resource type="Texture2D" uid="uid://exi3wbuntiql" path="res://sprites/Puzzlebox/Schanier1.png" id="6_55ode"]
+[ext_resource type="Texture2D" uid="uid://cg527v3k1bg5l" path="res://sprites/Puzzlebox/Schanier2.png" id="7_7vxoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmi6m"]
+size = Vector2(96, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwuot"]
+size = Vector2(167.302, 109.918)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ph6o"]
+size = Vector2(227.729, 122.835)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmghx"]
+size = Vector2(174.249, 124.38)
 
 [node name="Face" type="Node2D"]
 script = ExtResource("1_t3j6b")
 
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("2_0iexy")
+
 [node name="Inventory" parent="." instance=ExtResource("2_5y4mw")]
+visible = false
 
 [node name="Coin1" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(211, 817)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin1"]
+shape = SubResource("RectangleShape2D_gmi6m")
 
 [node name="Coin2" parent="." instance=ExtResource("3_2bstn")]
 
@@ -23,16 +48,60 @@ script = ExtResource("1_t3j6b")
 [node name="Square" parent="." instance=ExtResource("3_2bstn")]
 
 [node name="Button1" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(530, 333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
+position = Vector2(-6.10352e-05, -1.00003)
+rotation = -0.959931
+shape = SubResource("RectangleShape2D_iwuot")
 
 [node name="Button2" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(1354, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2"]
+position = Vector2(0, -1.50003)
+rotation = 0.959931
+shape = SubResource("RectangleShape2D_1ph6o")
 
 [node name="Button3" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(787, 156)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button3"]
+position = Vector2(0.5, -1.52588e-05)
+rotation = -0.296706
+shape = SubResource("RectangleShape2D_hmghx")
 
 [node name="SlotTriangle" parent="." instance=ExtResource("4_w4tar")]
 
 [node name="SlotCircle" parent="." instance=ExtResource("4_w4tar")]
 
 [node name="SlotSquare" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="MundLeft" type="Node2D" parent="."]
+position = Vector2(947, 884)
+
+[node name="yes" type="Sprite2D" parent="MundLeft"]
+visible = false
+position = Vector2(-35, 228)
+scale = Vector2(1, -1)
+texture = ExtResource("6_55ode")
+
+[node name="no" type="Sprite2D" parent="MundLeft"]
+position = Vector2(-37, -347)
+texture = ExtResource("6_55ode")
+
+[node name="MundRight" type="Node2D" parent="."]
+position = Vector2(947, 884)
+
+[node name="yes" type="Sprite2D" parent="MundRight"]
+visible = false
+position = Vector2(35, 228)
+scale = Vector2(1, -1)
+texture = ExtResource("7_7vxoh")
+
+[node name="no" type="Sprite2D" parent="MundRight"]
+position = Vector2(26, -344)
+texture = ExtResource("7_7vxoh")
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

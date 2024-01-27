@@ -2,30 +2,31 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Inventory.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
-var left_up = false
-var right_up = false
 var last_button = null
 
 func _on_button_1_pressed():
 	$Button1.active = false
-	left_up = true
-	# TODO animation left + button
+	$MundLeft/no.visible = false
+	$MundLeft/yes.visible = true
+	# TODO animation button
 	last_button = $Button1
 	check_solution()
 
 func _on_button_2_pressed():
 	$Button2.active = false
-	var temp = left_up
-	left_up = right_up
-	right_up = temp
-	# TODO animation left + right + button
+	var temp = $MundLeft/yes.visible
+	$MundLeft/no.visible = $MundRight/no.visible
+	$MundLeft/yes.visible = $MundRight/yes.visible
+	$MundRight/no.visible = !temp
+	$MundRight/yes.visible = temp
+	# TODO animation button
 	last_button = $Button2
 	check_solution()
 
@@ -40,7 +41,7 @@ func _on_button_3_pressed():
 
 func check_solution():
 	if !$Button1.active and !$Button2.active and !$Button3.active:
-		if left_up and right_up:
+		if $MundLeft/yes.visible and $MundRight/yes.visible:
 			pass # TODO win level
 		else:
 			reset_puzzle()
@@ -50,16 +51,30 @@ func reset_puzzle():
 	$Button1.active = true
 	$Button2.active = true
 	$Button3.active = true
-	left_up = false
-	right_up = false
-	# TODO animations for all
+	$MundLeft/no.visible = true
+	$MundLeft/yes.visible = false
+	$MundRight/no.visible = true
+	$MundRight/yes.visible = false
+	# TODO animations for buttons
 
 
 func _on_slot_triangle_pressed():
-	pass # Replace with function body.
+	if $Inventory.active_sprite:
+		if $Inventory.active_sprite_has_name("Triangle"):
+			pass # TODO place triangle
+		else:
+			pass # TODO errrr
 
 func _on_slot_circle_pressed():
-	pass # Replace with function body.
+	if $Inventory.active_sprite:
+		if $Inventory.active_sprite_has_name("Circle"):
+			pass # TODO place circle
+		else:
+			pass # TODO errrr
 
 func _on_slot_square_pressed():
-	pass # Replace with function body.
+	if $Inventory.active_sprite:
+		if $Inventory.active_sprite_has_name("Square"):
+			pass # TODO place square
+		else:
+			pass # TODO errrr
