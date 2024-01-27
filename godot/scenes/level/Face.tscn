@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://caqmnyi1wmxb8"]
+
+[ext_resource type="Script" path="res://scenes/level/Face.gd" id="1_t3j6b"]
+[ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="2_5y4mw"]
+[ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_2bstn"]
+[ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="4_w4tar"]
+
+[node name="Face" type="Node2D"]
+script = ExtResource("1_t3j6b")
+
+[node name="Inventory" parent="." instance=ExtResource("2_5y4mw")]
+
+[node name="Coin1" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Coin2" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Coin3" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Triangle" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Circle" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Square" parent="." instance=ExtResource("3_2bstn")]
+
+[node name="Button1" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="Button2" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="Button3" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="SlotTriangle" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="SlotCircle" parent="." instance=ExtResource("4_w4tar")]
+
+[node name="SlotSquare" parent="." instance=ExtResource("4_w4tar")]
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="SlotTriangle" to="." method="_on_slot_triangle_pressed"]
+[connection signal="pressed" from="SlotCircle" to="." method="_on_slot_circle_pressed"]
+[connection signal="pressed" from="SlotSquare" to="." method="_on_slot_square_pressed"]
