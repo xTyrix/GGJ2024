@@ -5,9 +5,10 @@ var active_slot: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for n in 10:
-		var node = get_node("%s" % n)
-		node.pressed.connect(Callable(_on_slot_pressed).bind(node))
+	pass
+	#for n in 10:
+	#	var node = get_node("%s" % n)
+	#	node.pressed.connect(Callable(_on_slot_pressed).bind(node))
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -28,6 +29,12 @@ func add_to_inventory(sprite):
 		sprite.get_parent().remove_child(sprite)
 		node.add_child(sprite)
 		break
+
+func get_active_sprite():
+	return active_sprite
+	
+func clear_active_sprite():
+	active_sprite.queue_free()
 
 func put_back():
 	if not active_sprite:
