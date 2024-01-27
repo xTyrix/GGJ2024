@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="3_mxbts"]
-[ext_resource type="Script" path="res://scenes/ClickableMe.gd" id="4_xt63l"]
+[ext_resource type="Script" path="res://scenes/ClickableTest.gd" id="3_ywr3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu0xa"]
 
@@ -96,7 +96,7 @@ polygon = PackedVector2Array(448, 208, 448, 328, 576, 328, 576, 208)
 
 [node name="Area2D" parent="." instance=ExtResource("3_mxbts")]
 position = Vector2(0, 56)
-script = ExtResource("4_xt63l")
+script = ExtResource("3_ywr3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_bk2ag")
