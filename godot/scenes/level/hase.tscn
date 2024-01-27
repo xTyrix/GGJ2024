@@ -1,23 +1,32 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbfr4vf4q4txf"]
+[gd_scene load_steps=20 format=3 uid="uid://cbfr4vf4q4txf"]
 
 [ext_resource type="Script" path="res://scenes/Clickable.gd" id="1_6xvm4"]
 [ext_resource type="Script" path="res://scenes/level/hase.gd" id="1_ry35f"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="2_4n71r"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_jeu7p"]
 [ext_resource type="Texture2D" uid="uid://kt0bk4yigs5f" path="res://sprites/Park/Hase-kaputt.png" id="3_1n27n"]
+[ext_resource type="Texture2D" uid="uid://cf320yvxhj8cl" path="res://sprites/Park/Maedchen—weinend.png" id="3_ah2yw"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_pfs8t"]
+[ext_resource type="Texture2D" uid="uid://wdvsrfm4uw74" path="res://sprites/Park/Busch.png" id="3_wbe1k"]
 [ext_resource type="Texture2D" uid="uid://1yojfqxi5m7q" path="res://sprites/Park/Sprungfeder.png" id="6_fxjkr"]
 [ext_resource type="Texture2D" uid="uid://em2o5l6jmvh2" path="res://sprites/Park/Park_Hintergrund.png" id="7_g4f7g"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_emhq3"]
+[ext_resource type="Texture2D" uid="uid://si5lvf138fji" path="res://sprites/Park/Zahnrad.png" id="7_l4opg"]
+[ext_resource type="Texture2D" uid="uid://d28m0gds2vt0j" path="res://sprites/Park/Leiter.png" id="8_algmn"]
+[ext_resource type="Texture2D" uid="uid://eds2x2lqntyi" path="res://sprites/Park/Zahnrad—Blume.png" id="9_h3d78"]
+[ext_resource type="Texture2D" uid="uid://dlpx4ve4yj63n" path="res://sprites/Park/Mädchen—lachend.png" id="14_bgrbn"]
+[ext_resource type="Texture2D" uid="uid://dm3pjdgn15i81" path="res://sprites/Park/Hase-repariert.png" id="15_v0wbr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5t8x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg528"]
-size = Vector2(135, 13)
+radius = 44.5982
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c05ba"]
-size = Vector2(50, 47)
+size = Vector2(227, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg528"]
+size = Vector2(226.25, 496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndhxj"]
+size = Vector2(322, 979.75)
 
 [node name="Rabbit" type="Node2D"]
 script = ExtResource("1_ry35f")
@@ -27,87 +36,73 @@ position = Vector2(114, 100)
 script = ExtResource("1_6xvm4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Mädchen"]
-position = Vector2(145, 54)
-scale = Vector2(33.625, 67.375)
-texture = SubResource("PlaceholderTexture2D_emhq3")
+position = Vector2(625, 524)
+scale = Vector2(0.277778, 0.277778)
+texture = ExtResource("3_ah2yw")
 
-[node name="Busch" type="Sprite2D" parent="."]
-position = Vector2(358, 194)
-scale = Vector2(0.168519, 0.168519)
-texture = ExtResource("3_1n27n")
+[node name="Clickable" parent="." instance=ExtResource("2_jeu7p")]
+position = Vector2(154, 587)
+metadata/_edit_group_ = true
 
 [node name="Zahnrad" parent="." instance=ExtResource("2_4n71r")]
-position = Vector2(100, 207)
+position = Vector2(532, 952)
 metadata/_edit_group_ = true
 
 [node name="Zahnrad5" type="Sprite2D" parent="Zahnrad"]
-scale = Vector2(14.125, 14.125)
-texture = SubResource("PlaceholderTexture2D_emhq3")
+scale = Vector2(0.0747685, 0.0747685)
+texture = ExtResource("7_l4opg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zahnrad"]
 shape = SubResource("CircleShape2D_h5t8x")
 
-[node name="inventory" parent="." instance=ExtResource("3_pfs8t")]
+[node name="Inventory" parent="." instance=ExtResource("3_pfs8t")]
+position = Vector2(-21, -5)
 
 [node name="Blume" parent="." instance=ExtResource("2_4n71r")]
-position = Vector2(214, 231)
+position = Vector2(1202, 918)
 metadata/_edit_group_ = true
 
 [node name="Zahnrad_Blume2" type="Sprite2D" parent="Blume"]
-scale = Vector2(9.06586, 10.125)
-texture = SubResource("PlaceholderTexture2D_emhq3")
+scale = Vector2(0.156944, 0.156944)
+texture = ExtResource("9_h3d78")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Blume"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Blume"]
 shape = SubResource("CircleShape2D_h5t8x")
 
 [node name="Blume2" parent="." instance=ExtResource("2_4n71r")]
-position = Vector2(284, 246)
+position = Vector2(431, 600)
 metadata/_edit_group_ = true
 
 [node name="Zahnrad_Blume2" type="Sprite2D" parent="Blume2"]
-scale = Vector2(9.06586, 10.125)
-texture = SubResource("PlaceholderTexture2D_emhq3")
+scale = Vector2(0.162037, 0.162037)
+texture = ExtResource("9_h3d78")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Blume2"]
 shape = SubResource("CircleShape2D_h5t8x")
 
 [node name="Feder" parent="." instance=ExtResource("2_4n71r")]
-position = Vector2(685, 231)
+position = Vector2(1125, 87)
 active = false
 metadata/_edit_group_ = true
 
 [node name="Feder2" type="Sprite2D" parent="Feder"]
-position = Vector2(457, -164)
 scale = Vector2(0.0685185, 0.0685185)
 texture = ExtResource("6_fxjkr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Feder"]
 shape = SubResource("CircleShape2D_h5t8x")
 
-[node name="Clickable" parent="." instance=ExtResource("2_jeu7p")]
+[node name="Hase" parent="." instance=ExtResource("2_jeu7p")]
+position = Vector2(985, 825)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
-position = Vector2(145.5, 280.5)
-shape = SubResource("RectangleShape2D_pg528")
-
-[node name="Leiter" type="Sprite2D" parent="Clickable"]
-position = Vector2(145.8, 280.563)
-scale = Vector2(132.399, 12.875)
-texture = SubResource("PlaceholderTexture2D_emhq3")
-
-[node name="Clickable2" parent="." instance=ExtResource("2_jeu7p")]
-position = Vector2(921, 706)
-metadata/_edit_group_ = true
-
-[node name="Hase" type="Sprite2D" parent="Clickable2"]
+[node name="Hase" type="Sprite2D" parent="Hase"]
 scale = Vector2(0.220517, 0.220517)
 texture = ExtResource("3_1n27n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hase"]
+position = Vector2(10.5, -9)
 shape = SubResource("RectangleShape2D_c05ba")
-
-[node name="v" type="Sprite2D" parent="."]
 
 [node name="ParkHintergrund" type="Sprite2D" parent="."]
 z_index = -2
@@ -115,5 +110,47 @@ position = Vector2(957, 600)
 scale = Vector2(0.889969, 0.889969)
 texture = ExtResource("7_g4f7g")
 
+[node name="Mädchen_Lachend" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(746, 635)
+scale = Vector2(0.290432, 0.290432)
+texture = ExtResource("14_bgrbn")
+
+[node name="Hase_ganz" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(984, 826)
+scale = Vector2(0.218518, 0.218518)
+texture = ExtResource("15_v0wbr")
+
+[node name="Leiter" parent="." instance=ExtResource("2_4n71r")]
+position = Vector2(174, 573)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leiter"]
+shape = SubResource("RectangleShape2D_pg528")
+
+[node name="Leiter" type="Sprite2D" parent="Leiter"]
+rotation = -0.174533
+scale = Vector2(0.255171, 0.255171)
+texture = ExtResource("8_algmn")
+
+[node name="Leiter_vor_Baum" parent="." instance=ExtResource("2_jeu7p")]
+
+[node name="Leiter2" type="Sprite2D" parent="Leiter_vor_Baum"]
+visible = false
+position = Vector2(1505, 641)
+scale = Vector2(0.441667, 0.441667)
+texture = ExtResource("8_algmn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Leiter_vor_Baum"]
+position = Vector2(1525, 565.125)
+shape = SubResource("RectangleShape2D_ndhxj")
+
+[node name="Busch" type="Sprite2D" parent="."]
+position = Vector2(279, 771)
+scale = Vector2(0.490741, 0.490741)
+texture = ExtResource("3_wbe1k")
+
 [connection signal="pressed" from="Clickable" to="." method="_on_leiter_pressed"]
-[connection signal="pressed" from="Clickable2" to="." method="_on_hase_pressed"]
+[connection signal="pressed" from="Hase" to="." method="_on_hase_pressed"]
+[connection signal="pressed" from="Leiter_vor_Baum" to="." method="_on_leiter_vor_baum_pressed"]
