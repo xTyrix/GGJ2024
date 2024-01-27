@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6xgir6tnur82"]
+[gd_scene load_steps=11 format=3 uid="uid://b6xgir6tnur82"]
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="3_mxbts"]
@@ -9,9 +9,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2ag"]
 size = Vector2(16, 16)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x7kd8"]
+seed = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qyvml"]
+noise = SubResource("FastNoiseLite_x7kd8")
+
 [sub_resource type="Gradient" id="Gradient_tuosg"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ueytv"]
+noise_type = 4
+seed = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yljf0"]
 color_ramp = SubResource("Gradient_tuosg")
@@ -95,15 +103,30 @@ z_index = -1
 polygon = PackedVector2Array(448, 208, 448, 328, 576, 328, 576, 208)
 
 [node name="Area2D" parent="." instance=ExtResource("3_mxbts")]
-position = Vector2(0, 56)
+position = Vector2(32, 40)
 script = ExtResource("3_ywr3y")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_bk2ag")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(0.03125, 0.03125)
+texture = SubResource("NoiseTexture2D_qyvml")
+
+[node name="Area2D2" parent="." instance=ExtResource("3_mxbts")]
+position = Vector2(104, 56)
+script = ExtResource("3_ywr3y")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_bk2ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+scale = Vector2(0.03125, 0.03125)
 texture = SubResource("NoiseTexture2D_yljf0")
 
 [connection signal="pressed" from="Area2D" to="." method="_on_area_2d_pressed"]
 [connection signal="pressed" from="Area2D" to="Area2D" method="_on_pressed"]
+[connection signal="pressed" from="Area2D2" to="." method="_on_area_2d_pressed"]
+[connection signal="pressed" from="Area2D2" to="Area2D2" method="_on_pressed"]
