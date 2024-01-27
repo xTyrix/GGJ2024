@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_tmxrs"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="3_mxbts"]
-[ext_resource type="Script" path="res://scenes/ClickableTest.gd" id="3_ywr3y"]
+[ext_resource type="Script" path="res://scenes/Item.gd" id="3_ywr3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu0xa"]
 

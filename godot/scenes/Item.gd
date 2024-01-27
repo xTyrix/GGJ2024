@@ -1,4 +1,4 @@
-extends "res://scenes/Clickable.gd"
+extends Clickable
 
 
 # Called when the node enters the scene tree for the first time.

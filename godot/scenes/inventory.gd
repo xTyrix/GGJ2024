@@ -49,4 +49,3 @@ func _on_slot_pressed(node):
 		active_sprite.get_parent().remove_child(active_sprite)
 		add_child(active_sprite)
 
-			

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccwao5x8nsffy"]
+
+[ext_resource type="Script" path="res://scenes/Item.gd" id="1_y2qpg"]
+[ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_tjkxh"]
+[ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_skkbb"]
+[ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="4_xbmfj"]
+
+[node name="Koenig" type="Node2D"]
+script = ExtResource("1_y2qpg")
+active = null
+
+[node name="Hufeisen" parent="." instance=ExtResource("2_tjkxh")]
+
+[node name="Schluessel" parent="." instance=ExtResource("2_tjkxh")]
+
+[node name="Ritter" parent="." instance=ExtResource("2_tjkxh")]
+
+[node name="Schrank" parent="." instance=ExtResource("2_tjkxh")]
+
+[node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
+
+[node name="Buecher" parent="." instance=ExtResource("4_xbmfj")]
+
+[connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
+[connection signal="pressed" from="Schluessel" to="." method="_on_schluessel_pressed"]
+[connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]
+[connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
