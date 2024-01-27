@@ -9,6 +9,11 @@ func _ready():
 		var node = get_node("%s" % n)
 		node.pressed.connect(Callable(_on_slot_pressed).bind(node))
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			put_back()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if active_sprite:
@@ -24,16 +29,24 @@ func add_to_inventory(sprite):
 		node.add_child(sprite)
 		break
 
+func put_back():
+	if not active_sprite:
+		return
+
+	active_sprite.position = Vector2(0, 0)
+	active_sprite.get_parent().remove_child(active_sprite)
+	active_slot.add_child(active_sprite)
+	
+	active_sprite = null
+	active_slot = null
+
 func _on_slot_pressed(node):
 	if node.get_child_count() > 1:
-		var old_active_sprite = active_sprite
-			
+		put_back()
+		
+		active_slot = node
 		active_sprite = node.get_child(1)
 		active_sprite.get_parent().remove_child(active_sprite)
 		add_child(active_sprite)
 
-		if old_active_sprite:
-			old_active_sprite.position = Vector2(0, 0)
-			old_active_sprite.get_parent().remove_child(old_active_sprite)
-			node.add_child(old_active_sprite)
 			
