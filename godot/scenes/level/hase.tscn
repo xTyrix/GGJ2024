@@ -153,6 +153,7 @@ texture = ExtResource("3_wbe1k")
 position = Vector2(-21, -5)
 
 [node name="ChildLaughing" type="AudioStreamPlayer2D" parent="."]
+[node name="Traene" type="CPUParticles2D" parent="."]
 position = Vector2(751, 653)
 amount = 2
 texture = ExtResource("16_ofsn3")
