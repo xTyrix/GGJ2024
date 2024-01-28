@@ -1,7 +1,7 @@
 extends Node2D
 
-var level_select_scene = preload("res://scenes/level_select_scene.tscn")
-var main_menu_scene = preload("res://scenes/main_menu_scene.tscn")
+@export var level_select_scene: PackedScene
+@export var main_menu_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
