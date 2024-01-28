@@ -36,6 +36,9 @@ func _on_hase_pressed():
 		$Hase_ganz.visible=true
 		$Hase.visible=false
 		$ChildLaughing.play()
+		$Traene.emitting=false
+		$Traene2.emitting=false
+		
 	
 	
 	

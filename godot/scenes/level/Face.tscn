@@ -1,38 +1,224 @@
-[gd_scene load_steps=5 format=3 uid="uid://caqmnyi1wmxb8"]
+[gd_scene load_steps=28 format=3 uid="uid://caqmnyi1wmxb8"]
 
 [ext_resource type="Script" path="res://scenes/level/Face.gd" id="1_t3j6b"]
+[ext_resource type="Texture2D" uid="uid://bl4bb77202wl6" path="res://sprites/Puzzlebox/Puzzlebox.png" id="2_0iexy"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="2_5y4mw"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_2bstn"]
+[ext_resource type="Script" path="res://scenes/level/Klotz.gd" id="4_pgxu2"]
+[ext_resource type="Texture2D" uid="uid://bhgdogqocnye" path="res://sprites/Puzzlebox/Muenze1.png" id="4_uqjy5"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="4_w4tar"]
+[ext_resource type="Texture2D" uid="uid://b34jh28ibvopb" path="res://sprites/Puzzlebox/Muenze3.png" id="5_v2sjc"]
+[ext_resource type="Texture2D" uid="uid://c4247cff8xh4o" path="res://sprites/Puzzlebox/Button-Kreispfeil.png" id="6_1gjap"]
+[ext_resource type="Texture2D" uid="uid://exi3wbuntiql" path="res://sprites/Puzzlebox/Schanier1.png" id="6_55ode"]
+[ext_resource type="Texture2D" uid="uid://cg527v3k1bg5l" path="res://sprites/Puzzlebox/Schanier2.png" id="7_7vxoh"]
+[ext_resource type="Texture2D" uid="uid://o02ohee78knc" path="res://sprites/Puzzlebox/Button-doppelpfeil.png" id="7_n2o5k"]
+[ext_resource type="Texture2D" uid="uid://d1nersgua75s1" path="res://sprites/Puzzlebox/Klotz-Dreieck .png" id="7_qkevi"]
+[ext_resource type="Texture2D" uid="uid://re0x8rjbocyd" path="res://sprites/Puzzlebox/Button-pfeil.png" id="8_5yqoc"]
+[ext_resource type="Texture2D" uid="uid://dpn2g6svpe7jg" path="res://sprites/Puzzlebox/Klotz-Kreis.png" id="8_heoay"]
+[ext_resource type="Texture2D" uid="uid://guxf0gp0mk5c" path="res://sprites/Puzzlebox/Button-leer.png" id="11_dg7dp"]
+[ext_resource type="Texture2D" uid="uid://tcvphv4yf80a" path="res://sprites/Puzzlebox/Muenze2.png" id="13_7syk5"]
+[ext_resource type="Texture2D" uid="uid://dsksffdguwnju" path="res://sprites/Puzzlebox/Klotz-quadratisch.png" id="18_dfx4s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0314"]
+radius = 60.8769
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h0hf"]
+size = Vector2(74, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwuot"]
+size = Vector2(205.475, 156.857)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ph6o"]
+size = Vector2(245.105, 173.665)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmghx"]
+size = Vector2(174.249, 124.38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bk10"]
+size = Vector2(231, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3c6s"]
+size = Vector2(231, 228)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awibw"]
+size = Vector2(205, 220)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8v1c"]
+radius = 59.0339
 
 [node name="Face" type="Node2D"]
 script = ExtResource("1_t3j6b")
 
-[node name="Inventory" parent="." instance=ExtResource("2_5y4mw")]
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("2_0iexy")
 
 [node name="Coin1" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(211, 817)
 
-[node name="Coin2" parent="." instance=ExtResource("3_2bstn")]
+[node name="Sprite2D" type="Sprite2D" parent="Coin1"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_uqjy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin1"]
+shape = SubResource("CircleShape2D_d0314")
 
 [node name="Coin3" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(390, 1003)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(-8, 3)
+rotation = -0.337701
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("5_v2sjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(2, -8)
+shape = SubResource("RectangleShape2D_4h0hf")
 
 [node name="Triangle" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(932, 590)
+script = ExtResource("4_pgxu2")
+solved = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Triangle"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_qkevi")
 
 [node name="Circle" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(195, 817)
+script = ExtResource("4_pgxu2")
+solved = true
 
-[node name="Square" parent="." instance=ExtResource("3_2bstn")]
+[node name="Sprite2D" type="Sprite2D" parent="Circle"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_heoay")
 
 [node name="Button1" parent="." instance=ExtResource("4_w4tar")]
+visible = false
+position = Vector2(530, 333)
+active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Button1"]
+rotation = -0.881058
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("6_1gjap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
+position = Vector2(-6.17242, 1.17285)
+rotation = -0.959931
+shape = SubResource("RectangleShape2D_iwuot")
 
 [node name="Button2" parent="." instance=ExtResource("4_w4tar")]
+visible = false
+position = Vector2(1354, 320)
+active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Button2"]
+position = Vector2(-15.9999, 11.9999)
+rotation = 0.870473
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_n2o5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2"]
+position = Vector2(9.03662, 2.77823)
+rotation = 0.959931
+shape = SubResource("RectangleShape2D_1ph6o")
 
 [node name="Button3" parent="." instance=ExtResource("4_w4tar")]
+visible = false
+position = Vector2(787, 156)
+active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Button3"]
+position = Vector2(-5, 4)
+rotation = -0.300394
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("8_5yqoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button3"]
+position = Vector2(0.5, -1.52588e-05)
+rotation = -0.296706
+shape = SubResource("RectangleShape2D_hmghx")
 
 [node name="SlotTriangle" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(222, 542)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotTriangle"]
+position = Vector2(-19.5, 2)
+shape = SubResource("RectangleShape2D_7bk10")
 
 [node name="SlotCircle" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(211, 816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotCircle"]
+position = Vector2(-3.5, 5)
+shape = SubResource("RectangleShape2D_u3c6s")
 
 [node name="SlotSquare" parent="." instance=ExtResource("4_w4tar")]
+position = Vector2(208, 254)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotSquare"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_awibw")
+
+[node name="MundLeft" type="Node2D" parent="."]
+position = Vector2(947, 884)
+
+[node name="yes" type="Sprite2D" parent="MundLeft"]
+visible = false
+position = Vector2(-35, 228)
+scale = Vector2(1, -1)
+texture = ExtResource("6_55ode")
+
+[node name="no" type="Sprite2D" parent="MundLeft"]
+position = Vector2(-37, -347)
+texture = ExtResource("6_55ode")
+
+[node name="MundRight" type="Node2D" parent="."]
+position = Vector2(947, 884)
+
+[node name="yes" type="Sprite2D" parent="MundRight"]
+visible = false
+position = Vector2(35, 228)
+scale = Vector2(1, -1)
+texture = ExtResource("7_7vxoh")
+
+[node name="no" type="Sprite2D" parent="MundRight"]
+position = Vector2(26, -344)
+texture = ExtResource("7_7vxoh")
+
+[node name="Coin2" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(940, 766)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(-3, -2)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("13_7syk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+shape = SubResource("CircleShape2D_x8v1c")
+
+[node name="Button4" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.243137, 0.243137, 0.25098, 1)
+position = Vector2(1089, 152)
+rotation = 0.298601
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_dg7dp")
+
+[node name="Square" parent="." instance=ExtResource("3_2bstn")]
+position = Vector2(1846, 1024)
+script = ExtResource("4_pgxu2")
+solved = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Square"]
+position = Vector2(-21, 16)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_dfx4s")
+
+[node name="Inventory" parent="." instance=ExtResource("2_5y4mw")]
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

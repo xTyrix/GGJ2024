@@ -1,48 +1,21 @@
-[gd_scene load_steps=25 format=3 uid="uid://ouix3th1cui8"]
+[gd_scene load_steps=24 format=3 uid="uid://ouix3th1cui8"]
 
 [ext_resource type="Script" path="res://scenes/level/Fuss.gd" id="1_7bsw8"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_3jeid"]
-[ext_resource type="Texture2D" uid="uid://c81du5ty8lv1c" path="res://sprites/Fußraum/SchrankGeschlossen.png" id="3_k2fyn"]
+[ext_resource type="Texture2D" uid="uid://l7ndcc1f72xv" path="res://sprites/Fußraum/SchrankGeschlossen.png" id="3_k2fyn"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_mwk54"]
-[ext_resource type="Texture2D" uid="uid://ce0imwpqhuuip" path="res://sprites/Fußraum/SchrankGeoeffnet.png" id="4_7ffph"]
+[ext_resource type="Texture2D" uid="uid://bh70mgdo6fcsg" path="res://sprites/Fußraum/SchrankGeoeffnet.png" id="4_7ffph"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="4_cgq6i"]
-[ext_resource type="Texture2D" uid="uid://b4lv4igdhhy0b" path="res://sprites/Fußraum/Feder.png" id="4_od5cg"]
-[ext_resource type="Texture2D" uid="uid://myulb2rx2jco" path="res://sprites/Fußraum/Cactus.png" id="7_utqka"]
-[ext_resource type="Texture2D" uid="uid://kx4hmkcocqlk" path="res://sprites/Fußraum/Sunflower.png" id="8_kih6v"]
-[ext_resource type="Texture2D" uid="uid://chwy5o6fdpmsw" path="res://sprites/Fußraum/FußKreis.png" id="8_vi2qc"]
-[ext_resource type="Texture2D" uid="uid://dist532ewkr2" path="res://sprites/Fußraum/Foot.png" id="12_c2vor"]
-[ext_resource type="Texture2D" uid="uid://c7bxosntx1in4" path="res://sprites/Fußraum/OrdnerHochkant.png" id="13_7rtt3"]
-[ext_resource type="Texture2D" uid="uid://clpty5q7ka4yh" path="res://sprites/Fußraum/OrdnerUmgekippt.png" id="13_hf7sr"]
+[ext_resource type="Texture2D" uid="uid://w1hmbs6gl002" path="res://sprites/Fußraum/Feder.png" id="4_od5cg"]
+[ext_resource type="Texture2D" uid="uid://pyc3ubnehv21" path="res://sprites/Fußraum/Cactus.png" id="7_utqka"]
+[ext_resource type="Texture2D" uid="uid://hebt7x70cbip" path="res://sprites/Fußraum/Sunflower.png" id="8_kih6v"]
+[ext_resource type="Texture2D" uid="uid://bakneo74ih4uq" path="res://sprites/Fußraum/FußKreis.png" id="8_vi2qc"]
+[ext_resource type="Texture2D" uid="uid://dpixkrnfcrrm8" path="res://sprites/Fußraum/Foot.png" id="12_c2vor"]
+[ext_resource type="Texture2D" uid="uid://c4d0n64dl1kmt" path="res://sprites/Fußraum/OrdnerHochkant.png" id="13_7rtt3"]
+[ext_resource type="Texture2D" uid="uid://c4lg6c4jn248r" path="res://sprites/Fußraum/OrdnerUmgekippt.png" id="13_hf7sr"]
 [ext_resource type="Script" path="res://scenes/level/Fuss_meter.gd" id="13_m5of2"]
-[ext_resource type="Texture2D" uid="uid://ci5nq8n453ilr" path="res://sprites/Fußraum/RucksackHochkant.png" id="14_kwdyb"]
-[ext_resource type="Texture2D" uid="uid://4bilkmbb4cv7" path="res://sprites/Fußraum/RucksackUmgekippt.png" id="15_vh82b"]
-
-[sub_resource type="GDScript" id="GDScript_0bo0e"]
-script/source = "class_name ClickableSchrank
-extends Area2D
-
-signal pressed
-
-@export var active = true
-
-var open = false
-
-var mouse_hover = false
-
-func _input(event):
-	if not (active and mouse_hover):
-		return
-
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			pressed.emit()
-
-func _on_mouse_entered():
-	mouse_hover = true
-
-func _on_mouse_exited():
-	mouse_hover = false
-"
+[ext_resource type="Texture2D" uid="uid://boox3g6dqr5ed" path="res://sprites/Fußraum/RucksackHochkant.png" id="14_kwdyb"]
+[ext_resource type="Texture2D" uid="uid://bil7aqpvrg7ss" path="res://sprites/Fußraum/RucksackUmgekippt.png" id="15_vh82b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdydn"]
 size = Vector2(525, 629)
@@ -76,7 +49,6 @@ centered = false
 
 [node name="Schrank" parent="." instance=ExtResource("2_3jeid")]
 position = Vector2(1612, 674)
-script = SubResource("GDScript_0bo0e")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Schrank"]
@@ -108,7 +80,6 @@ position = Vector2(17, 19)
 texture = ExtResource("4_od5cg")
 
 [node name="Inventory" parent="." instance=ExtResource("4_cgq6i")]
-position = Vector2(365, 75)
 
 [node name="FussTickle1" parent="." instance=ExtResource("2_3jeid")]
 position = Vector2(377, 66)
@@ -144,6 +115,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_vi2qc")
 
 [node name="Kaktus" parent="." instance=ExtResource("3_mwk54")]
+visible = false
 position = Vector2(1624, 289)
 metadata/_edit_group_ = true
 
@@ -156,6 +128,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_utqka")
 
 [node name="Sonnenblume" parent="." instance=ExtResource("3_mwk54")]
+visible = false
 position = Vector2(1003, 823)
 metadata/_edit_group_ = true
 
@@ -198,7 +171,8 @@ scale = Vector2(6, 6)
 texture = ExtResource("14_kwdyb")
 
 [node name="RucksackUmgekippt" type="Sprite2D" parent="Rucksack"]
-position = Vector2(-20, 30)
+visible = false
+position = Vector2(-23, 118)
 scale = Vector2(6, 6)
 texture = ExtResource("15_vh82b")
 
@@ -216,3 +190,8 @@ editable = false
 scrollable = false
 
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
+[connection signal="pressed" from="FussTickle1" to="CanvasLayer" method="_on_fuss_tickle_1_pressed"]
+[connection signal="pressed" from="FussTickle2" to="CanvasLayer" method="_on_fuss_tickle_2_pressed"]
+[connection signal="pressed" from="FussTickle3" to="CanvasLayer" method="_on_fuss_tickle_3_pressed"]
+[connection signal="pressed" from="Ordner" to="." method="_on_ordner_pressed"]
+[connection signal="pressed" from="Rucksack" to="." method="_on_rucksack_pressed"]

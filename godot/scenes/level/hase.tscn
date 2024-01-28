@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbfr4vf4q4txf"]
+[gd_scene load_steps=21 format=3 uid="uid://cbfr4vf4q4txf"]
 
 [ext_resource type="Script" path="res://scenes/Clickable.gd" id="1_6xvm4"]
 [ext_resource type="Script" path="res://scenes/level/hase.gd" id="1_ry35f"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cey6yxcm7gkwv" path="res://sprites/Park/Zahnrad—Blume.png" id="9_h3d78"]
 [ext_resource type="Texture2D" uid="uid://bde8lcbwwnp55" path="res://sprites/Park/Mädchen—lachend.png" id="14_bgrbn"]
 [ext_resource type="Texture2D" uid="uid://dfbd5lhn01gmn" path="res://sprites/Park/Hase-repariert.png" id="15_v0wbr"]
+[ext_resource type="Texture2D" uid="uid://cwvhcw4pkknhy" path="res://sprites/Park/Traene.png" id="16_ofsn3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5t8x"]
 radius = 44.5982
@@ -152,6 +153,22 @@ texture = ExtResource("3_wbe1k")
 position = Vector2(-21, -5)
 
 [node name="ChildLaughing" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(751, 653)
+amount = 2
+texture = ExtResource("16_ofsn3")
+direction = Vector2(40, 3)
+spread = 66.81
+scale_amount_min = 0.35
+scale_amount_max = 0.37
+
+[node name="Traene2" type="CPUParticles2D" parent="."]
+position = Vector2(829, 640)
+amount = 2
+texture = ExtResource("16_ofsn3")
+direction = Vector2(40, 3)
+spread = 66.81
+scale_amount_min = 0.35
+scale_amount_max = 0.37
 
 [connection signal="pressed" from="Clickable" to="." method="_on_leiter_pressed"]
 [connection signal="pressed" from="Hase" to="." method="_on_hase_pressed"]
