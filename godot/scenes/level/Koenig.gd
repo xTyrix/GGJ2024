@@ -1,5 +1,6 @@
 extends Node2D
 
+var level_select_scene: PackedScene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,8 +42,9 @@ func _on_ritter_pressed():
 	$RitterNackt.visible = true
 	$Koenig/Kopf.visible = false
 	$Koenig/KoenigKopfGluecklich.visible = true
-	$KoenigLachte.play()
+	#$KoenigLachte.play()
 	
+	$MenuLogic.go_back_to_level_select()
 
 
 func _on_schrank_pressed():
