@@ -4,17 +4,17 @@
 [ext_resource type="Script" path="res://scenes/level/hase.gd" id="1_ry35f"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="2_4n71r"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_jeu7p"]
-[ext_resource type="Texture2D" uid="uid://kt0bk4yigs5f" path="res://sprites/Park/Hase-kaputt.png" id="3_1n27n"]
-[ext_resource type="Texture2D" uid="uid://cf320yvxhj8cl" path="res://sprites/Park/Maedchen—weinend.png" id="3_ah2yw"]
+[ext_resource type="Texture2D" uid="uid://0xapbd86hn5x" path="res://sprites/Park/Hase-kaputt.png" id="3_1n27n"]
+[ext_resource type="Texture2D" uid="uid://ubiacmigxef6" path="res://sprites/Park/Maedchen—weinend.png" id="3_ah2yw"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_pfs8t"]
-[ext_resource type="Texture2D" uid="uid://wdvsrfm4uw74" path="res://sprites/Park/Busch.png" id="3_wbe1k"]
-[ext_resource type="Texture2D" uid="uid://1yojfqxi5m7q" path="res://sprites/Park/Sprungfeder.png" id="6_fxjkr"]
-[ext_resource type="Texture2D" uid="uid://em2o5l6jmvh2" path="res://sprites/Park/Park_Hintergrund.png" id="7_g4f7g"]
-[ext_resource type="Texture2D" uid="uid://si5lvf138fji" path="res://sprites/Park/Zahnrad.png" id="7_l4opg"]
-[ext_resource type="Texture2D" uid="uid://d28m0gds2vt0j" path="res://sprites/Park/Leiter.png" id="8_algmn"]
-[ext_resource type="Texture2D" uid="uid://eds2x2lqntyi" path="res://sprites/Park/Zahnrad—Blume.png" id="9_h3d78"]
-[ext_resource type="Texture2D" uid="uid://dlpx4ve4yj63n" path="res://sprites/Park/Mädchen—lachend.png" id="14_bgrbn"]
-[ext_resource type="Texture2D" uid="uid://dm3pjdgn15i81" path="res://sprites/Park/Hase-repariert.png" id="15_v0wbr"]
+[ext_resource type="Texture2D" uid="uid://cu3o1savoct51" path="res://sprites/Park/Busch.png" id="3_wbe1k"]
+[ext_resource type="Texture2D" uid="uid://bqs3y7a0grkqh" path="res://sprites/Park/Sprungfeder.png" id="6_fxjkr"]
+[ext_resource type="Texture2D" uid="uid://c4h1u4yi788yo" path="res://sprites/Park/Park_Hintergrund.png" id="7_g4f7g"]
+[ext_resource type="Texture2D" uid="uid://o7ubs3vqipmy" path="res://sprites/Park/Zahnrad.png" id="7_l4opg"]
+[ext_resource type="Texture2D" uid="uid://dt4kra3ep48js" path="res://sprites/Park/Leiter.png" id="8_algmn"]
+[ext_resource type="Texture2D" uid="uid://cey6yxcm7gkwv" path="res://sprites/Park/Zahnrad—Blume.png" id="9_h3d78"]
+[ext_resource type="Texture2D" uid="uid://bde8lcbwwnp55" path="res://sprites/Park/Mädchen—lachend.png" id="14_bgrbn"]
+[ext_resource type="Texture2D" uid="uid://dfbd5lhn01gmn" path="res://sprites/Park/Hase-repariert.png" id="15_v0wbr"]
 [ext_resource type="Texture2D" uid="uid://cwvhcw4pkknhy" path="res://sprites/Park/Traene.png" id="16_ofsn3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5t8x"]
@@ -213,6 +213,7 @@ texture = ExtResource("3_wbe1k")
 [node name="Inventory" parent="." instance=ExtResource("3_pfs8t")]
 position = Vector2(-21, -5)
 
+[node name="ChildLaughing" type="AudioStreamPlayer2D" parent="."]
 [node name="Traene" type="CPUParticles2D" parent="."]
 position = Vector2(751, 653)
 amount = 2
