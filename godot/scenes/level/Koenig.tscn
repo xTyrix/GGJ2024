@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ccwao5x8nsffy"]
+[gd_scene load_steps=31 format=3 uid="uid://ccwao5x8nsffy"]
 
 [ext_resource type="Script" path="res://scenes/level/Koenig.gd" id="1_hg6kg"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_tjkxh"]
