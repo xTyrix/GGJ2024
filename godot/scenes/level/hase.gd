@@ -18,15 +18,23 @@ func _on_leiter_pressed():
 
 
 func _on_hase_pressed():
-	if not ($inventory.active_sprite_has_name("Zahnrad") or
-			$inventory.active_sprite_has_name("Blume") or
-			$inventory.active_sprite_has_name("Blume2") or
-			$inventory.active_sprite_has_name("Feder")):
+	if not ($Inventory.active_sprite_has_name("Zahnrad") or
+			$Inventory.active_sprite_has_name("Blume") or
+			$Inventory.active_sprite_has_name("Blume2") or
+			$Inventory.active_sprite_has_name("Feder")):
 		return
 	
-	$inventory.clear_active_sprite()
+	$Inventory.clear_active_sprite()
 	
-	
+	# TODO hase und mädchen sprites tauschen
 	pass # Replace with function body.
 	fehlende_items-=1
 	print(fehlende_items)
+
+
+func _on_leiter_vor_baum_pressed():
+	if $Inventory.active_sprite_has_name("Leiter"):
+		$Leiter_vor_Baum/Leiter2.visible = true
+		$Inventory.clear_active_sprite()
+		# TODO Feder aktivieren
+		$Inventory
