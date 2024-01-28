@@ -82,7 +82,7 @@ texture = ExtResource("3_rledt")
 shape = SubResource("RectangleShape2D_rqex1")
 
 [node name="Schluessel" parent="." instance=ExtResource("4_xbmfj")]
-position = Vector2(464, 1064)
+position = Vector2(448, 992)
 metadata/_edit_group_ = true
 
 [node name="Schluessel2" type="Sprite2D" parent="Schluessel"]
