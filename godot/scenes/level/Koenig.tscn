@@ -233,7 +233,7 @@ texture = ExtResource("18_ilj61")
 
 [node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="KoenigLachte" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_jgrcc")
 
 [connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
