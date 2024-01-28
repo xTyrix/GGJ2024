@@ -62,7 +62,7 @@ func _on_buecher_pressed():
 		return
 	$Inventory.clear_active_sprite()
 
-	if $Bucher == null:
+	if $Buecher == null:
 		$Inventory/InventoryArea/Area2D/Buecher.queue_free()
 	else:
 		$Buecher.queue_free()
