@@ -12,7 +12,7 @@ func _ready():
 func _set_visible():
 	visible = true
 
-func _unhandled_input(event):
-	if visible == true and event == InputEventKey:
+func _unhandled_key_input(event):
+	if visible == true:
 		if event.is_action_pressed("ui_accept"):
 			get_tree().change_scene_to_packed(win_change_to_scene)
