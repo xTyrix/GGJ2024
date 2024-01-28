@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dycogyxet8hcf"]
-
-[ext_resource type="Script" path="res://scenes/level/Fuss_meter.gd" id="1_sxi7r"]
-
-[node name="FussMeter" type="Node2D"]
-script = ExtResource("1_sxi7r")

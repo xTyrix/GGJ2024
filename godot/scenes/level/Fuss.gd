@@ -10,6 +10,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass # Replace with function body.
+	
+
+func _on_rucksack_pressed():
+	$Rucksack.active = false
+	$Rucksack/RucksackUmgekippt.visible = true
+	$Rucksack/RucksackHochkant.visible = false
+	$Sonnenblume.visible = true
+
+func _on_ordner_pressed():
+	$Ordner.active = false
+	$Ordner/OrdnerUmgekippt.visible = true
+	$Ordner/OrdnerHochkant.visible = false
+	$Kaktus.visible = true
 
 
 func _on_schrank_pressed():

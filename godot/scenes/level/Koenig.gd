@@ -1,5 +1,6 @@
 extends Node2D
 
+var level_select_scene: PackedScene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +44,9 @@ func _on_ritter_pressed():
 	$RitterNackt.visible = true
 	$Koenig/Kopf.visible = false
 	$Koenig/KoenigKopfGluecklich.visible = true
+	$KoenigLachte.play()
+	
+	$MenuLogic.go_back_to_level_select()
 
 
 func _on_schrank_pressed():
@@ -64,7 +68,7 @@ func _on_buecher_pressed():
 		return
 	$Inventory.clear_active_sprite()
 
-	if $Buecher == null:
+	if get_node_or_null("Buecher") == null:
 		$Inventory/InventoryArea/Area2D/Buecher.queue_free()
 	else:
 		$Buecher.queue_free()
@@ -76,7 +80,7 @@ func _on_hufeisen_pressed():
 		return
 	$Inventory.clear_active_sprite()
 
-	if $Hufeisen == null:
+	if get_node_or_null("Hufeisen") == null:
 		$Inventory/InventoryArea/Area2D/Hufeisen.queue_free()
 	else:
 		$Hufeisen.queue_free()

@@ -2,23 +2,25 @@
 
 [ext_resource type="Script" path="res://scenes/level/Koenig.gd" id="1_hg6kg"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_tjkxh"]
-[ext_resource type="Texture2D" uid="uid://dtnglcfqnopus" path="res://sprites/Thronsaal/Hufeisen.png" id="3_rledt"]
+[ext_resource type="Texture2D" uid="uid://3xqo7pw5istx" path="res://sprites/Thronsaal/Hufeisen.png" id="3_rledt"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_skkbb"]
-[ext_resource type="Texture2D" uid="uid://cso73iqd17giw" path="res://sprites/Thronsaal/Magnet.png" id="3_yd1iq"]
-[ext_resource type="Texture2D" uid="uid://dvty7ioui3heh" path="res://sprites/Thronsaal/Thronsaal_Hintergrund.png" id="4_6rarn"]
-[ext_resource type="Texture2D" uid="uid://b6aj0f1fcjjiw" path="res://sprites/Thronsaal/Katze_ohne_Arm.png" id="4_s3no2"]
+[ext_resource type="Texture2D" uid="uid://dj4ajloit6x4i" path="res://sprites/Thronsaal/Magnet.png" id="3_yd1iq"]
+[ext_resource type="Texture2D" uid="uid://3jik0s0vylat" path="res://sprites/Thronsaal/Thronsaal_Hintergrund.png" id="4_6rarn"]
+[ext_resource type="Texture2D" uid="uid://te80bvy4txkp" path="res://sprites/Thronsaal/Katze_ohne_Arm.png" id="4_s3no2"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="4_xbmfj"]
-[ext_resource type="Texture2D" uid="uid://ctnqjphhke3g4" path="res://sprites/Thronsaal/Arm_ohne_Katze.png" id="5_ery7o"]
-[ext_resource type="Texture2D" uid="uid://dlwqbdj1rn2d8" path="res://sprites/Thronsaal/Buecher_plus_minus.png" id="5_seb7v"]
-[ext_resource type="Texture2D" uid="uid://jufbx0sy8k5k" path="res://sprites/Thronsaal/Schluessel.png" id="6_6op2v"]
-[ext_resource type="Texture2D" uid="uid://cnygdwvsoyjdv" path="res://sprites/Thronsaal/Tuer.png" id="7_6eoep"]
-[ext_resource type="Texture2D" uid="uid://d1x5jck6i31tv" path="res://sprites/Thronsaal/Wollkneul.png" id="9_tdux6"]
-[ext_resource type="Texture2D" uid="uid://cbvy4rvluvkx5" path="res://sprites/Thronsaal/Koenig_ohne_Kopf.png" id="10_d8mpc"]
-[ext_resource type="Texture2D" uid="uid://c1o0gk35xjech" path="res://sprites/Thronsaal/Koenig_Kopf_sauer.png" id="11_txvx1"]
-[ext_resource type="Texture2D" uid="uid://h5a38ckawp8y" path="res://sprites/Thronsaal/Szepter_ohne_Koenig.png" id="12_kve7y"]
-[ext_resource type="Texture2D" uid="uid://dt2k7t5r480xb" path="res://sprites/Thronsaal/RitterNackt.png" id="17_y73pr"]
-[ext_resource type="Texture2D" uid="uid://d0bvhtf3neaq5" path="res://sprites/Thronsaal/Ritter.png" id="18_ilj61"]
-[ext_resource type="Texture2D" uid="uid://df4qeghhpiysd" path="res://sprites/Thronsaal/Koenig_Kopf_gluecklich.png" id="19_lfnf1"]
+[ext_resource type="Texture2D" uid="uid://dfig767iodbk2" path="res://sprites/Thronsaal/Arm_ohne_Katze.png" id="5_ery7o"]
+[ext_resource type="Texture2D" uid="uid://cen6vf35r1yvk" path="res://sprites/Thronsaal/Buecher_plus_minus.png" id="5_seb7v"]
+[ext_resource type="Texture2D" uid="uid://cs352g7qqtcbu" path="res://sprites/Thronsaal/Schluessel.png" id="6_6op2v"]
+[ext_resource type="Texture2D" uid="uid://330xa7ly386r" path="res://sprites/Thronsaal/Tuer.png" id="7_6eoep"]
+[ext_resource type="Texture2D" uid="uid://btprpomtk22tg" path="res://sprites/Thronsaal/Wollkneul.png" id="9_tdux6"]
+[ext_resource type="Texture2D" uid="uid://dy4tpdgwrxgqg" path="res://sprites/Thronsaal/Koenig_ohne_Kopf.png" id="10_d8mpc"]
+[ext_resource type="Texture2D" uid="uid://k0q0wymmakc6" path="res://sprites/Thronsaal/Koenig_Kopf_sauer.png" id="11_txvx1"]
+[ext_resource type="Texture2D" uid="uid://bmesy7ng2bnfb" path="res://sprites/Thronsaal/Szepter_ohne_Koenig.png" id="12_kve7y"]
+[ext_resource type="Texture2D" uid="uid://c3qdj3r0lav7w" path="res://sprites/Thronsaal/RitterNackt.png" id="17_y73pr"]
+[ext_resource type="Texture2D" uid="uid://b5ydprs340uho" path="res://sprites/Thronsaal/Ritter.png" id="18_ilj61"]
+[ext_resource type="Texture2D" uid="uid://dvncc65qvo6n4" path="res://sprites/Thronsaal/Koenig_Kopf_gluecklich.png" id="19_lfnf1"]
+[ext_resource type="AudioStream" uid="uid://cptus74k2688w" path="res://sfx/InteractSounds/laughing-man-27517.mp3" id="20_jgrcc"]
+[ext_resource type="PackedScene" uid="uid://cmgpot6lnu7c2" path="res://scenes/MenuLogic.tscn" id="21_syjlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_st3tj"]
 size = Vector2(88, 104)
@@ -269,6 +271,11 @@ scale = Vector2(0.225, 0.225)
 texture = ExtResource("18_ilj61")
 
 [node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
+
+[node name="KoenigLachte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_jgrcc")
+
+[node name="MenuLogic" parent="." instance=ExtResource("21_syjlo")]
 
 [connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
 [connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]
