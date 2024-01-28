@@ -4,7 +4,8 @@ func _ready():
 	remove_child(square)
 	$Inventory/InventoryArea.add_child(square)
 
-
+signal puzzle_solved
+var win_screen_visible: bool = false
 var last_button = null
 const YES = Color("ffffff")
 const NO = Color("3e3e3e")
@@ -46,7 +47,8 @@ func _on_button_3_pressed():
 func check_solution():
 	if !$Button1.active and !$Button2.active and !$Button3.active:
 		if $MundLeft/yes.visible and $MundRight/yes.visible:
-			pass # TODO win level
+			emit_signal("puzzle_solved")
+			win_screen_visible = true
 		else:
 			$AnimationPlayer.play("reset")
 
