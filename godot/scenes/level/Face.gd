@@ -10,6 +10,8 @@ const YES = Color("ffffff")
 const NO = Color("3e3e3e")
 
 func _on_button_1_pressed():
+	$MechanismPlayer.play(4.3)
+	$MechanismTimer.start(0.55)
 	$Button1.active = false
 	$Button1.modulate = NO
 	if last_button:
@@ -19,6 +21,8 @@ func _on_button_1_pressed():
 	check_solution()
 
 func _on_button_2_pressed():
+	$MechanismPlayer.play(4.3)
+	$MechanismTimer.start(0.55)
 	$Button2.active = false
 	$Button2.modulate = NO
 	var temp = $MundLeft/yes.visible
@@ -30,6 +34,8 @@ func _on_button_2_pressed():
 	check_solution()
 
 func _on_button_3_pressed():
+	$MechanismPlayer.play(4.3)
+	$MechanismTimer.start(0.55)
 	$Button3.active = false
 	$Button3.modulate = NO
 	$MundLeft/no.visible = false
@@ -58,6 +64,8 @@ func reset_puzzle():
 	$MundRight/yes.visible = false
 	
 func start_puzzle():
+	$MechanismPlayer.play()
+	$MechanismTimer.start(4.0)
 	# deactivate left and right puzzles
 	$Triangle.active = false
 	$Square.active = false
@@ -78,6 +86,7 @@ func start_puzzle():
 @onready var triangle = $Triangle
 func _on_slot_triangle_pressed():
 	if $Inventory.active_sprite_has_name("Triangle") and !triangle.was_just_put_away:
+		$WoodBlockPlayer.play(0.4)
 		triangle.solved = true
 		$Inventory.active_sprite = null
 		triangle.get_parent().remove_child(triangle)
@@ -85,11 +94,12 @@ func _on_slot_triangle_pressed():
 		triangle.set_global_position(Vector2(219, 531))
 		check_left_and_right()
 	elif $Inventory.active_sprite:
-		pass # TODO errrr
+		$ErrorPlayer.play()
 
 @onready var circle = $Circle
 func _on_slot_circle_pressed():
 	if $Inventory.active_sprite_has_name("Circle") and !circle.was_just_put_away:
+		$WoodBlockPlayer.play(0.4)
 		circle.solved = true
 		$Inventory.active_sprite = null
 		circle.get_parent().remove_child(circle)
@@ -97,11 +107,12 @@ func _on_slot_circle_pressed():
 		circle.set_global_position(Vector2(195, 817))
 		check_left_and_right()
 	elif $Inventory.active_sprite:
-		pass # TODO errrr
+		$ErrorPlayer.play()
 
 @onready var square = $Square
 func _on_slot_square_pressed():
 	if $Inventory.active_sprite_has_name("Square") and !square.was_just_put_away:
+		$WoodBlockPlayer.play(0.4)
 		square.solved = true
 		$Inventory.active_sprite = null
 		square.get_parent().remove_child(square)
@@ -109,7 +120,7 @@ func _on_slot_square_pressed():
 		square.set_global_position(Vector2(206, 248))
 		check_left_and_right()
 	elif $Inventory.active_sprite:
-		pass # TODO errrr
+		$ErrorPlayer.play()
 
 var coins = 0
 var green_light = load("res://sprites/Puzzlebox/Lampe-gruen.png")
@@ -118,6 +129,7 @@ func _on_slot_pressed():
 	is_coin = is_coin or $Inventory.active_sprite_has_name("Coin2")
 	is_coin = is_coin or $Inventory.active_sprite_has_name("Coin3")
 	if is_coin:
+		$CoinPlayer.play()
 		var coin = $Inventory.active_sprite
 		$Inventory.active_sprite = null
 		coin.queue_free()
@@ -126,7 +138,7 @@ func _on_slot_pressed():
 			$Lamps.get_node(str(coins)).texture = green_light
 		check_left_and_right()
 	elif $Inventory.active_sprite:
-		pass # TODO errrr
+		$ErrorPlayer.play()
 
 func check_left_and_right():
 	var solved = coins >= 3
@@ -135,3 +147,7 @@ func check_left_and_right():
 	solved = solved and square.solved
 	if solved:
 		start_puzzle()
+
+
+func _stop_mechanism_sound():
+	$MechanismPlayer.stop()
