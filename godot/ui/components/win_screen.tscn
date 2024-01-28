@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dstx15rtulfkm"]
+
+[ext_resource type="Script" path="res://ui/components/win_screen.gd" id="1_c7nvx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q40he"]
+font_size = 50
+outline_size = 15
+outline_color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="WinScreenLayer" type="CanvasLayer"]
+script = ExtResource("1_c7nvx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.266667, 0.423529, 0.482353, 0.333333)
+
+[node name="WinScreen" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLabel" type="Label" parent="WinScreen"]
+layout_mode = 2
+text = "Congratulation! You have solved this level
+
+To return back to the menu, press Enter"
+label_settings = SubResource("LabelSettings_q40he")
+horizontal_alignment = 1
+vertical_alignment = 1
