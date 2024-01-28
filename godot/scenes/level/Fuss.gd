@@ -17,3 +17,15 @@ func _on_schrank_pressed():
 	$Schrank/SchrankOpen.visible = true
 	$Schrank/SchrankClosed.visible = false
 	$Feder.visible = true
+
+func _on_rucksack_pressed():
+	$Rucksack.active = false
+	$Rucksack/RucksackUmgekippt.visible = true
+	$Rucksack/RucksackHochkant.visible = false
+	$Sonnenblume.visible = true
+
+func _on_ordner_pressed():
+	$Ordner.active = false
+	$Ordner/OrdnerUmgekippt.visible = true
+	$Ordner/OrdnerHochkant.visible = false
+	$Kaktus.visible = true

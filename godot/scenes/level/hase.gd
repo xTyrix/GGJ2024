@@ -30,11 +30,25 @@ func _on_hase_pressed():
 	pass # Replace with function body.
 	fehlende_items-=1
 	print(fehlende_items)
+	if fehlende_items==0:
+		$Maedchen_Lachend.visible=true
+		$Maedchen.visible=false
+		$Hase_ganz.visible=true
+		$Hase.visible=false
+		$Traene.emitting=false
+		$Traene2.emitting=false
+		
+	
+	
+	
+	
 
 
 func _on_leiter_vor_baum_pressed():
 	if $Inventory.active_sprite_has_name("Leiter"):
 		$Leiter_vor_Baum/Leiter2.visible = true
 		$Inventory.clear_active_sprite()
-		# TODO Feder aktivieren
-		$Inventory
+		
+		
+		$Feder.active=true
+		$Clickable.active=false

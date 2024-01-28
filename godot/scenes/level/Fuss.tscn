@@ -1,10 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://ouix3th1cui8"]
+[gd_scene load_steps=25 format=3 uid="uid://ouix3th1cui8"]
 
-[ext_resource type="Script" path="res://scenes/Item.gd" id="1_sqvro"]
+[ext_resource type="Script" path="res://scenes/level/Fuss.gd" id="1_7bsw8"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_3jeid"]
+[ext_resource type="Texture2D" uid="uid://l7ndcc1f72xv" path="res://sprites/Fußraum/SchrankGeschlossen.png" id="3_k2fyn"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="3_mwk54"]
+[ext_resource type="Texture2D" uid="uid://bh70mgdo6fcsg" path="res://sprites/Fußraum/SchrankGeoeffnet.png" id="4_7ffph"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="4_cgq6i"]
-[ext_resource type="PackedScene" uid="uid://dycogyxet8hcf" path="res://scenes/level/Fuss_meter.tscn" id="5_3cahk"]
+[ext_resource type="Texture2D" uid="uid://w1hmbs6gl002" path="res://sprites/Fußraum/Feder.png" id="4_od5cg"]
+[ext_resource type="Texture2D" uid="uid://pyc3ubnehv21" path="res://sprites/Fußraum/Cactus.png" id="7_utqka"]
+[ext_resource type="Texture2D" uid="uid://hebt7x70cbip" path="res://sprites/Fußraum/Sunflower.png" id="8_kih6v"]
+[ext_resource type="Texture2D" uid="uid://bakneo74ih4uq" path="res://sprites/Fußraum/FußKreis.png" id="8_vi2qc"]
+[ext_resource type="Texture2D" uid="uid://dpixkrnfcrrm8" path="res://sprites/Fußraum/Foot.png" id="12_c2vor"]
+[ext_resource type="Texture2D" uid="uid://c4d0n64dl1kmt" path="res://sprites/Fußraum/OrdnerHochkant.png" id="13_7rtt3"]
+[ext_resource type="Texture2D" uid="uid://c4lg6c4jn248r" path="res://sprites/Fußraum/OrdnerUmgekippt.png" id="13_hf7sr"]
+[ext_resource type="Script" path="res://scenes/level/Fuss_meter.gd" id="13_m5of2"]
+[ext_resource type="Texture2D" uid="uid://boox3g6dqr5ed" path="res://sprites/Fußraum/RucksackHochkant.png" id="14_kwdyb"]
+[ext_resource type="Texture2D" uid="uid://bil7aqpvrg7ss" path="res://sprites/Fußraum/RucksackUmgekippt.png" id="15_vh82b"]
 
 [sub_resource type="GDScript" id="GDScript_0bo0e"]
 script/source = "class_name ClickableSchrank
@@ -34,95 +45,179 @@ func _on_mouse_exited():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdydn"]
-size = Vector2(51, 46)
+size = Vector2(525, 629)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gqb3t"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxhn6"]
-size = Vector2(32, 40)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dy46u"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kbmoh"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndmdd"]
+radius = 18.4386
+height = 151.643
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3fuv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i85s"]
+radius = 56.0089
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bik8b"]
+size = Vector2(161, 166)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwe4n"]
+size = Vector2(142, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohi4n"]
+size = Vector2(156, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds7kg"]
+size = Vector2(279, 284)
 
 [node name="Fuss" type="Node2D"]
-script = ExtResource("1_sqvro")
+script = ExtResource("1_7bsw8")
+
+[node name="FußSprite" type="Sprite2D" parent="."]
+scale = Vector2(3.9, 3.9)
+texture = ExtResource("12_c2vor")
+centered = false
 
 [node name="Schrank" parent="." instance=ExtResource("2_3jeid")]
-position = Vector2(357, 128)
+position = Vector2(1612, 674)
 script = SubResource("GDScript_0bo0e")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Schrank"]
-position = Vector2(-25.5, -23)
+position = Vector2(-1.5, -27.5)
 shape = SubResource("RectangleShape2D_mdydn")
 
 [node name="SchrankClosed" type="Sprite2D" parent="Schrank"]
-position = Vector2(-25.75, -23.25)
-scale = Vector2(52.5, 47.5)
-texture = SubResource("PlaceholderTexture2D_gqb3t")
+scale = Vector2(4, 4)
+texture = ExtResource("3_k2fyn")
 
 [node name="SchrankOpen" type="Sprite2D" parent="Schrank"]
 visible = false
+position = Vector2(-91, -25)
+scale = Vector2(4, 4)
+texture = ExtResource("4_7ffph")
 
 [node name="Feder" parent="." instance=ExtResource("3_mwk54")]
 visible = false
-position = Vector2(348, 54)
+position = Vector2(1394, 598)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feder"]
-position = Vector2(17, 21)
-shape = SubResource("RectangleShape2D_lxhn6")
+position = Vector2(11, 14)
+rotation = 0.715585
+shape = SubResource("CapsuleShape2D_ndmdd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Feder"]
 position = Vector2(17, 19)
-scale = Vector2(-33, 39)
-texture = SubResource("PlaceholderTexture2D_dy46u")
+texture = ExtResource("4_od5cg")
 
 [node name="Inventory" parent="." instance=ExtResource("4_cgq6i")]
 position = Vector2(365, 75)
 
 [node name="FussTickle1" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(377, 66)
+metadata/_edit_group_ = true
 
-[node name="ToeCapsule" type="CollisionShape2D" parent="FussTickle1"]
-shape = SubResource("CapsuleShape2D_kbmoh")
+[node name="ToeCircle" type="CollisionShape2D" parent="FussTickle1"]
+shape = SubResource("CircleShape2D_f3fuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="FussTickle1"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_vi2qc")
 
 [node name="FussTickle2" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(504, 452)
+metadata/_edit_group_ = true
 
 [node name="MidfootCircle" type="CollisionShape2D" parent="FussTickle2"]
 shape = SubResource("CircleShape2D_f3fuv")
 
+[node name="Sprite2D" type="Sprite2D" parent="FussTickle2"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_vi2qc")
+
 [node name="FussTickle3" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(498, 872)
+metadata/_edit_group_ = true
 
-[node name="HindfootRectangle" type="CollisionShape2D" parent="FussTickle3"]
-shape = SubResource("RectangleShape2D_5i85s")
+[node name="HindfootCircle" type="CollisionShape2D" parent="FussTickle3"]
+shape = SubResource("CircleShape2D_f3fuv")
 
-[node name="FussMeter" parent="." instance=ExtResource("5_3cahk")]
-
-[node name="Sprite2D" type="Sprite2D" parent="FussMeter"]
+[node name="Sprite2D" type="Sprite2D" parent="FussTickle3"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_vi2qc")
 
 [node name="Kaktus" parent="." instance=ExtResource("3_mwk54")]
+visible = false
+position = Vector2(1624, 289)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kaktus"]
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_bik8b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kaktus"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_utqka")
 
 [node name="Sonnenblume" parent="." instance=ExtResource("3_mwk54")]
+visible = false
+position = Vector2(1003, 823)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sonnenblume"]
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_pwe4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sonnenblume"]
+scale = Vector2(2, 2)
+texture = ExtResource("8_kih6v")
+
+[node name="Ordner" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(1617, 291)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ordner"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_ohi4n")
+
+[node name="OrdnerHochkant" type="Sprite2D" parent="Ordner"]
+scale = Vector2(7, 7)
+texture = ExtResource("13_7rtt3")
+
+[node name="OrdnerUmgekippt" type="Sprite2D" parent="Ordner"]
+visible = false
+position = Vector2(-51, 47)
+scale = Vector2(7, 7)
+texture = ExtResource("13_hf7sr")
+
+[node name="Rucksack" parent="." instance=ExtResource("2_3jeid")]
+position = Vector2(1015, 788)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rucksack"]
+position = Vector2(0.5, 22)
+shape = SubResource("RectangleShape2D_ds7kg")
+
+[node name="RucksackHochkant" type="Sprite2D" parent="Rucksack"]
+scale = Vector2(6, 6)
+texture = ExtResource("14_kwdyb")
+
+[node name="RucksackUmgekippt" type="Sprite2D" parent="Rucksack"]
+visible = false
+position = Vector2(-20, 30)
+scale = Vector2(6, 6)
+texture = ExtResource("15_vh82b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("13_m5of2")
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer"]
+offset_left = 33.0
+offset_top = 622.0
+offset_right = 295.0
+offset_bottom = 1035.0
+max_value = 90.0
+step = 10.0
+editable = false
+scrollable = false
 
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
-[connection signal="pressed" from="FussTickle1" to="FussMeter" method="_on_fuss_tickle_1_pressed"]
-[connection signal="pressed" from="FussTickle2" to="FussMeter" method="_on_fuss_tickle_2_pressed"]
-[connection signal="pressed" from="FussTickle3" to="FussMeter" method="_on_fuss_tickle_3_pressed"]
+[connection signal="pressed" from="Ordner" to="." method="_on_ordner_pressed"]
+[connection signal="pressed" from="Rucksack" to="." method="_on_rucksack_pressed"]
