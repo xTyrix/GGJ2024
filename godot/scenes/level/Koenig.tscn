@@ -175,12 +175,12 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_d8mpc")
 
 [node name="Kopf" type="Sprite2D" parent="Koenig"]
-position = Vector2(750.391, 700)
+position = Vector2(742.662, 700)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("11_txvx1")
 
 [node name="Hand" type="Sprite2D" parent="Koenig"]
-position = Vector2(983.537, 688)
+position = Vector2(980.832, 688)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_kve7y")
 
