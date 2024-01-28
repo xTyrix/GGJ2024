@@ -1,6 +1,7 @@
 extends Node2D
 
 var active_sprite: Node = null
+var is_open: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,12 +34,14 @@ func add_sprite_to_inventory(sprite):
 	sprite.get_parent().remove_child(sprite)
 	$InventoryArea/Area2D.add_child(sprite)
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func _on_area_2d_input_event(viewport: Viewport ,event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			viewport.set_input_as_handled()
 			#print("inventory click")
 			if active_sprite and !active_sprite.was_just_put_away:
 				add_sprite_to_inventory(active_sprite)
 				active_sprite.active = true
 				active_sprite.just_taken = true
 				active_sprite = null
+

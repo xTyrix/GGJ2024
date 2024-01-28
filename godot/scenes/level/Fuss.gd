@@ -26,6 +26,8 @@ func _on_ordner_pressed():
 
 
 func _on_schrank_pressed():
+	if $Inventory.is_open:
+		return
 	$Schrank.active = false
 	$Schrank/SchrankOpen.visible = true
 	$Schrank/SchrankClosed.visible = false

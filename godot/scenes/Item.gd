@@ -17,11 +17,6 @@ func _process(delta):
 func _on_pressed():
 	if just_taken:
 		return
-	var inventory = null
-	var current_node = self
-	while (!inventory):
-		inventory = current_node.get_node_or_null("Inventory")
-		current_node = current_node.get_parent()
-	inventory.make_sprite_active(self)
+	get_inventory().make_sprite_active(self)
 	was_just_put_away = true
 	

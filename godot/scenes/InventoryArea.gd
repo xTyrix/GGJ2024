@@ -17,8 +17,10 @@ func _process(delta):
 	position = lerp(position, target_position, 0.2)
 
 func _on_area_2d_mouse_entered():
+	get_parent().is_open = true
 	target_position = original_position
 
 
 func _on_area_2d_2_mouse_exited():
+	get_parent().is_open = false
 	target_position = hidden_position
