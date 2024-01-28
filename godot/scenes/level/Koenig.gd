@@ -27,7 +27,7 @@ func _on_cat_pressed():
 		$Inventory.make_sprite_active($Hufeisen)
 		$Cat/Wolle.visible = true
 	else:
-		pass # TODO miau
+		$VeryAngryCat.play()
 
 
 func _on_schluessel_pressed():
