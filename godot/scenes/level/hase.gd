@@ -40,6 +40,7 @@ func _on_hase_pressed():
 		$ChildLaughing.play()
 		$Traene.emitting=false
 		$Traene2.emitting=false
+		$MenuLogic.go_back_to_level_select()
 		
 	
 	
