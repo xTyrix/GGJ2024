@@ -35,7 +35,7 @@ func _on_hase_pressed():
 		$Maedchen.visible=false
 		$Hase_ganz.visible=true
 		$Hase.visible=false
-		
+		$ChildLaughing.play()
 	
 	
 	

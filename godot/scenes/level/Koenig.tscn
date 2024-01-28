@@ -129,6 +129,7 @@ texture = ExtResource("6_6op2v")
 shape = SubResource("RectangleShape2D_m651f")
 
 [node name="Ritter" parent="." instance=ExtResource("2_tjkxh")]
+script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ritter"]
 z_index = -1
@@ -237,7 +238,6 @@ texture = ExtResource("18_ilj61")
 stream = ExtResource("20_jgrcc")
 
 [connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
-[connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]
 [connection signal="pressed" from="Buecher" to="." method="_on_buecher_pressed"]
 [connection signal="pressed" from="Schrank" to="." method="_on_schrank_pressed"]
 [connection signal="pressed" from="Cat" to="." method="_on_cat_pressed"]
