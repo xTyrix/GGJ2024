@@ -10,13 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass # Replace with function body.
-
-
-func _on_schrank_pressed():
-	$Schrank.active = false
-	$Schrank/SchrankOpen.visible = true
-	$Schrank/SchrankClosed.visible = false
-	$Feder.visible = true
+	
 
 func _on_rucksack_pressed():
 	$Rucksack.active = false
@@ -29,3 +23,10 @@ func _on_ordner_pressed():
 	$Ordner/OrdnerUmgekippt.visible = true
 	$Ordner/OrdnerHochkant.visible = false
 	$Kaktus.visible = true
+
+
+func _on_schrank_pressed():
+	$Schrank.active = false
+	$Schrank/SchrankOpen.visible = true
+	$Schrank/SchrankClosed.visible = false
+	$Feder.visible = true

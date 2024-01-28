@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbfr4vf4q4txf"]
+[gd_scene load_steps=28 format=3 uid="uid://cbfr4vf4q4txf"]
 
 [ext_resource type="Script" path="res://scenes/Clickable.gd" id="1_6xvm4"]
 [ext_resource type="Script" path="res://scenes/level/hase.gd" id="1_ry35f"]
@@ -16,12 +16,64 @@
 [ext_resource type="Texture2D" uid="uid://dlpx4ve4yj63n" path="res://sprites/Park/Mädchen—lachend.png" id="14_bgrbn"]
 [ext_resource type="Texture2D" uid="uid://dm3pjdgn15i81" path="res://sprites/Park/Hase-repariert.png" id="15_v0wbr"]
 [ext_resource type="Texture2D" uid="uid://cwvhcw4pkknhy" path="res://sprites/Park/Traene.png" id="16_ofsn3"]
+[ext_resource type="PackedScene" uid="uid://cmgpot6lnu7c2" path="res://scenes/MenuLogic.tscn" id="17_k5205"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5t8x"]
 radius = 44.5982
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_utp5p"]
+radius = 64.4981
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx4wi"]
+radius = 64.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c05ba"]
 size = Vector2(227, 200)
+
+[sub_resource type="Animation" id="Animation_1ji7b"]
+resource_name = "Hase_huepft"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Hase_ganz:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.517633, 2.14355, 1),
+"update": 0,
+"values": [Vector2(984, 830), Vector2(984, 600), Vector2(984, 830)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2htkh"]
+_data = {
+"Hase_huepft": SubResource("Animation_1ji7b")
+}
+
+[sub_resource type="Animation" id="Animation_o1e0g"]
+resource_name = "maedchen_animation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1.23114, 0.732043),
+"update": 0,
+"values": [Vector2(746, 635), Vector2(746, 500), Vector2(746, 635)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdki3"]
+_data = {
+"maedchen_animation": SubResource("Animation_o1e0g")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg528"]
 size = Vector2(226.25, 496)
@@ -46,7 +98,7 @@ position = Vector2(154, 587)
 metadata/_edit_group_ = true
 
 [node name="Zahnrad" parent="." instance=ExtResource("2_4n71r")]
-position = Vector2(532, 952)
+position = Vector2(513, 947)
 metadata/_edit_group_ = true
 
 [node name="Zahnrad5" type="Sprite2D" parent="Zahnrad"]
@@ -65,7 +117,7 @@ scale = Vector2(0.156944, 0.156944)
 texture = ExtResource("9_h3d78")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Blume"]
-shape = SubResource("CircleShape2D_h5t8x")
+shape = SubResource("CircleShape2D_utp5p")
 
 [node name="Blume2" parent="." instance=ExtResource("2_4n71r")]
 position = Vector2(431, 600)
@@ -76,7 +128,7 @@ scale = Vector2(0.162037, 0.162037)
 texture = ExtResource("9_h3d78")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Blume2"]
-shape = SubResource("CircleShape2D_h5t8x")
+shape = SubResource("CircleShape2D_cx4wi")
 
 [node name="Feder" parent="." instance=ExtResource("2_4n71r")]
 position = Vector2(1125, 87)
@@ -102,6 +154,11 @@ texture = ExtResource("3_1n27n")
 position = Vector2(10.5, -9)
 shape = SubResource("RectangleShape2D_c05ba")
 
+[node name="hase_animation" type="AnimationPlayer" parent="Hase"]
+libraries = {
+"": SubResource("AnimationLibrary_2htkh")
+}
+
 [node name="ParkHintergrund" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(957, 600)
@@ -114,9 +171,14 @@ position = Vector2(746, 635)
 scale = Vector2(0.290432, 0.290432)
 texture = ExtResource("14_bgrbn")
 
+[node name="Maedchen_animation" type="AnimationPlayer" parent="Maedchen_Lachend"]
+libraries = {
+"": SubResource("AnimationLibrary_tdki3")
+}
+
 [node name="Hase_ganz" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(984, 826)
+position = Vector2(984, 830)
 scale = Vector2(0.218518, 0.218518)
 texture = ExtResource("15_v0wbr")
 
@@ -152,6 +214,8 @@ texture = ExtResource("3_wbe1k")
 [node name="Inventory" parent="." instance=ExtResource("3_pfs8t")]
 position = Vector2(-21, -5)
 
+[node name="ChildLaughing" type="AudioStreamPlayer2D" parent="."]
+
 [node name="Traene" type="CPUParticles2D" parent="."]
 position = Vector2(751, 653)
 amount = 2
@@ -169,6 +233,8 @@ direction = Vector2(40, 3)
 spread = 66.81
 scale_amount_min = 0.35
 scale_amount_max = 0.37
+
+[node name="MenuLogic" parent="." instance=ExtResource("17_k5205")]
 
 [connection signal="pressed" from="Clickable" to="." method="_on_leiter_pressed"]
 [connection signal="pressed" from="Hase" to="." method="_on_hase_pressed"]

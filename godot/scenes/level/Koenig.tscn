@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" path="res://scenes/level/Koenig.gd" id="1_hg6kg"]
 [ext_resource type="PackedScene" uid="uid://bp8nf5lei8btn" path="res://scenes/Clickable.tscn" id="2_tjkxh"]
-[ext_resource type="Texture2D" uid="uid://chd200cw4k3pw" path="res://sprites/Thronsaal/Hufeisen.png" id="3_rledt"]
+[ext_resource type="Texture2D" uid="uid://b51kqmkuo2fai" path="res://sprites/Thronsaal/Hufeisen.png" id="3_rledt"]
 [ext_resource type="PackedScene" uid="uid://b6xgir6tnur82" path="res://scenes/inventory.tscn" id="3_skkbb"]
-[ext_resource type="Texture2D" uid="uid://m2fb1jd8rk47" path="res://sprites/Thronsaal/Magnet.png" id="3_yd1iq"]
-[ext_resource type="Texture2D" uid="uid://c0ud2erofr4sh" path="res://sprites/Thronsaal/Thronsaal_Hintergrund.png" id="4_6rarn"]
-[ext_resource type="Texture2D" uid="uid://e0vd1ixsqygd" path="res://sprites/Thronsaal/Katze_ohne_Arm.png" id="4_s3no2"]
+[ext_resource type="Texture2D" uid="uid://crk11f2a4jsni" path="res://sprites/Thronsaal/Magnet.png" id="3_yd1iq"]
+[ext_resource type="Texture2D" uid="uid://bb4pvajty24r6" path="res://sprites/Thronsaal/Thronsaal_Hintergrund.png" id="4_6rarn"]
+[ext_resource type="Texture2D" uid="uid://pmjp3jyocty" path="res://sprites/Thronsaal/Katze_ohne_Arm.png" id="4_s3no2"]
 [ext_resource type="PackedScene" uid="uid://bwjf8lxn2b46v" path="res://scenes/Item.tscn" id="4_xbmfj"]
-[ext_resource type="Texture2D" uid="uid://bm4nxjaowy64j" path="res://sprites/Thronsaal/Arm_ohne_Katze.png" id="5_ery7o"]
-[ext_resource type="Texture2D" uid="uid://cg8rmt0ju0ylm" path="res://sprites/Thronsaal/Buecher_plus_minus.png" id="5_seb7v"]
-[ext_resource type="Texture2D" uid="uid://didb0icujb1gp" path="res://sprites/Thronsaal/Schluessel.png" id="6_6op2v"]
-[ext_resource type="Texture2D" uid="uid://cnkrld7kict3x" path="res://sprites/Thronsaal/Tuer.png" id="7_6eoep"]
-[ext_resource type="Texture2D" uid="uid://cvuexxknekbdl" path="res://sprites/Thronsaal/Wollkneul.png" id="9_tdux6"]
-[ext_resource type="Texture2D" uid="uid://bf2kmdq53dxpl" path="res://sprites/Thronsaal/Koenig_ohne_Kopf.png" id="10_d8mpc"]
-[ext_resource type="Texture2D" uid="uid://bdrdwnhiqbmo5" path="res://sprites/Thronsaal/Koenig_Kopf_sauer.png" id="11_txvx1"]
-[ext_resource type="Texture2D" uid="uid://c5vdlfm1rw8we" path="res://sprites/Thronsaal/Szepter_ohne_Koenig.png" id="12_kve7y"]
-[ext_resource type="Texture2D" uid="uid://uyb3d1t7iuyy" path="res://sprites/Thronsaal/RitterNackt.png" id="17_y73pr"]
-[ext_resource type="Texture2D" uid="uid://cmmnoblptbp3b" path="res://sprites/Thronsaal/Ritter.png" id="18_ilj61"]
-[ext_resource type="Texture2D" uid="uid://bbhk0mkmv2n54" path="res://sprites/Thronsaal/Koenig_Kopf_gluecklich.png" id="19_lfnf1"]
-[ext_resource type="AudioStream" uid="uid://cgfwnjxjyl0k0" path="res://sfx/InteractSounds/laughing-man-27517.mp3" id="20_jgrcc"]
+[ext_resource type="Texture2D" uid="uid://c4v8kbhfn1d7n" path="res://sprites/Thronsaal/Arm_ohne_Katze.png" id="5_ery7o"]
+[ext_resource type="Texture2D" uid="uid://cyjgnowr81st" path="res://sprites/Thronsaal/Buecher_plus_minus.png" id="5_seb7v"]
+[ext_resource type="Texture2D" uid="uid://cgtly5lolv268" path="res://sprites/Thronsaal/Schluessel.png" id="6_6op2v"]
+[ext_resource type="Texture2D" uid="uid://goie7w002w5t" path="res://sprites/Thronsaal/Tuer.png" id="7_6eoep"]
+[ext_resource type="Texture2D" uid="uid://cxomwo3ca4n0i" path="res://sprites/Thronsaal/Wollkneul.png" id="9_tdux6"]
+[ext_resource type="Texture2D" uid="uid://cmougi861j5y4" path="res://sprites/Thronsaal/Koenig_ohne_Kopf.png" id="10_d8mpc"]
+[ext_resource type="Texture2D" uid="uid://bo3gfyoa1is6s" path="res://sprites/Thronsaal/Koenig_Kopf_sauer.png" id="11_txvx1"]
+[ext_resource type="Texture2D" uid="uid://drhr7rv2odwhm" path="res://sprites/Thronsaal/Szepter_ohne_Koenig.png" id="12_kve7y"]
+[ext_resource type="Texture2D" uid="uid://mktmxx0kx1mb" path="res://sprites/Thronsaal/RitterNackt.png" id="17_y73pr"]
+[ext_resource type="Texture2D" uid="uid://cn6670w8mdjig" path="res://sprites/Thronsaal/Ritter.png" id="18_ilj61"]
+[ext_resource type="Texture2D" uid="uid://bd3uh1l8ncq5s" path="res://sprites/Thronsaal/Koenig_Kopf_gluecklich.png" id="19_lfnf1"]
+[ext_resource type="PackedScene" uid="uid://cmgpot6lnu7c2" path="res://scenes/MenuLogic.tscn" id="21_syjlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_st3tj"]
 size = Vector2(88, 104)
@@ -71,6 +71,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(982, 688), Vector2(989, 688), Vector2(982, 688), Vector2(975, 688), Vector2(982, 688)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KoenigKopfGluecklich:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(744, 667), Vector2(744, 690), Vector2(744, 667)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6llah"]
 _data = {
@@ -79,6 +91,27 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr0tv"]
 size = Vector2(183, 151)
+
+[sub_resource type="Animation" id="Animation_1ebgd"]
+resource_name = "cat-idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 0.9),
+"transitions": PackedFloat32Array(0.0412347, 0.287175),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxvdn"]
+_data = {
+"cat-idle": SubResource("Animation_1ebgd")
+}
 
 [node name="Koenig" type="Node2D"]
 script = ExtResource("1_hg6kg")
@@ -176,22 +209,22 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_d8mpc")
 
 [node name="Kopf" type="Sprite2D" parent="Koenig"]
-position = Vector2(750.391, 700)
+position = Vector2(750.228, 700)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("11_txvx1")
 
 [node name="Hand" type="Sprite2D" parent="Koenig"]
-position = Vector2(983.537, 688)
+position = Vector2(983.48, 688)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_kve7y")
 
 [node name="KoenigKopfGluecklich" type="Sprite2D" parent="Koenig"]
 visible = false
-position = Vector2(744, 667)
+position = Vector2(744, 669.431)
 scale = Vector2(0.245988, 0.245988)
 texture = ExtResource("19_lfnf1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Koenig"]
+[node name="animationKing" type="AnimationPlayer" parent="Koenig"]
 libraries = {
 "": SubResource("AnimationLibrary_6llah")
 }
@@ -212,13 +245,18 @@ texture = ExtResource("4_s3no2")
 
 [node name="Paw" type="Sprite2D" parent="Cat"]
 position = Vector2(1100, 554)
-rotation = -1.5708
+rotation = -0.918328
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_ery7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
 position = Vector2(1083.5, 553.5)
 shape = SubResource("RectangleShape2D_jr0tv")
+
+[node name="animationCat" type="AnimationPlayer" parent="Cat"]
+libraries = {
+"": SubResource("AnimationLibrary_vxvdn")
+}
 
 [node name="RitterNackt" type="Sprite2D" parent="."]
 visible = false
@@ -232,9 +270,11 @@ scale = Vector2(0.225, 0.225)
 texture = ExtResource("18_ilj61")
 
 [node name="Inventory" parent="." instance=ExtResource("3_skkbb")]
+visible = false
 
 [node name="KoenigLachte" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_jgrcc")
+
+[node name="MenuLogic" parent="." instance=ExtResource("21_syjlo")]
 
 [connection signal="pressed" from="Hufeisen" to="." method="_on_hufeisen_pressed"]
 [connection signal="pressed" from="Ritter" to="." method="_on_ritter_pressed"]

@@ -4,6 +4,8 @@ var fehlende_items=4
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	$Hase/hase_animation.play("Hase_huepft")
+	$Maedchen_Lachend/Maedchen_animation.play("maedchen_animation")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +37,10 @@ func _on_hase_pressed():
 		$Maedchen.visible=false
 		$Hase_ganz.visible=true
 		$Hase.visible=false
+		$ChildLaughing.play()
 		$Traene.emitting=false
 		$Traene2.emitting=false
+		$MenuLogic.go_back_to_level_select()
 		
 	
 	
