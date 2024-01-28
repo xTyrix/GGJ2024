@@ -4,7 +4,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-	$Koenig/AnimationPlayer.play("king-idle")
+	$Koenig/animationKing.play("king-idle")
+	$Cat/animationCat.play("cat-idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
