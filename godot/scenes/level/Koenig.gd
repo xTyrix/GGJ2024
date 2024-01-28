@@ -41,6 +41,8 @@ func _on_ritter_pressed():
 	$RitterNackt.visible = true
 	$Koenig/Kopf.visible = false
 	$Koenig/KoenigKopfGluecklich.visible = true
+	$AudioStreamPlayer2D.play()
+	
 
 
 func _on_schrank_pressed():
