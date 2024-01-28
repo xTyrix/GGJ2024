@@ -10,6 +10,7 @@ var win_screen_visible: bool = false
 
 func win_screen():
 	if tickle1 + tickle2 + tickle3 == 0 and win_screen_visible == false:
+		$"Fuss Lachen Win".play()
 		print("you have solved this level")
 		emit_signal("puzzle_solved")
 		win_screen_visible = true
