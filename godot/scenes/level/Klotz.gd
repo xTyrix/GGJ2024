@@ -1,3 +1,4 @@
+class_name Klotz
 extends Item
 
 @export var solved = false
