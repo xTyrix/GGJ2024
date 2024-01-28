@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://caqmnyi1wmxb8"]
+[gd_scene load_steps=37 format=3 uid="uid://caqmnyi1wmxb8"]
 
 [ext_resource type="Script" path="res://scenes/level/Face.gd" id="1_t3j6b"]
 [ext_resource type="Texture2D" uid="uid://bl4bb77202wl6" path="res://sprites/Puzzlebox/Puzzlebox.png" id="2_0iexy"]
@@ -60,6 +60,65 @@ size = Vector2(191, 196)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rv1g"]
 size = Vector2(120, 296)
+
+[sub_resource type="Animation" id="Animation_mq1pw"]
+resource_name = "reset"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(0.862745, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(0.243137, 0.243137, 0.243137, 1), Color(0.737255, 0.235294, 0.235294, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_puzzle"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rmvq"]
+_data = {
+"reset": SubResource("Animation_mq1pw")
+}
 
 [node name="Face" type="Node2D"]
 script = ExtResource("1_t3j6b")
@@ -130,6 +189,7 @@ shape = SubResource("RectangleShape2D_l1bvp")
 
 [node name="Button1" parent="." instance=ExtResource("4_w4tar")]
 visible = false
+modulate = Color(0.243137, 0.243137, 0.243137, 1)
 position = Vector2(530, 333)
 active = false
 
@@ -145,6 +205,7 @@ shape = SubResource("RectangleShape2D_iwuot")
 
 [node name="Button2" parent="." instance=ExtResource("4_w4tar")]
 visible = false
+modulate = Color(0.243137, 0.243137, 0.243137, 1)
 position = Vector2(1354, 320)
 active = false
 
@@ -161,6 +222,7 @@ shape = SubResource("RectangleShape2D_1ph6o")
 
 [node name="Button3" parent="." instance=ExtResource("4_w4tar")]
 visible = false
+modulate = Color(0.243137, 0.243137, 0.243137, 1)
 position = Vector2(787, 156)
 active = false
 
@@ -277,6 +339,11 @@ texture = ExtResource("19_sh41c")
 
 [node name="Inventory" parent="." instance=ExtResource("2_5y4mw")]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6rmvq")
+}
 
 [connection signal="pressed" from="SlotCircle" to="." method="_on_slot_circle_pressed"]
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]

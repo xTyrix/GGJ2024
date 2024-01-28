@@ -42,7 +42,7 @@ func check_solution():
 		if $MundLeft/yes.visible and $MundRight/yes.visible:
 			pass # TODO win level
 		else:
-			reset_puzzle()
+			$AnimationPlayer.play("reset")
 
 func reset_puzzle():
 	last_button = null
