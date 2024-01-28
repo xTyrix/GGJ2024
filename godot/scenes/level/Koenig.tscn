@@ -42,6 +42,41 @@ size = Vector2(339, 638)
 [sub_resource type="CircleShape2D" id="CircleShape2D_avpqg"]
 radius = 35.1283
 
+[sub_resource type="Animation" id="Animation_450wl"]
+resource_name = "king-idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Kopf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(746, 700), Vector2(766, 700), Vector2(746, 700), Vector2(726, 700), Vector2(746, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(982, 688), Vector2(989, 688), Vector2(982, 688), Vector2(975, 688), Vector2(982, 688)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6llah"]
+_data = {
+"king-idle": SubResource("Animation_450wl")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr0tv"]
 size = Vector2(183, 151)
 
@@ -141,12 +176,12 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_d8mpc")
 
 [node name="Kopf" type="Sprite2D" parent="Koenig"]
-position = Vector2(746, 672)
+position = Vector2(750.391, 700)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("11_txvx1")
 
 [node name="Hand" type="Sprite2D" parent="Koenig"]
-position = Vector2(982, 688)
+position = Vector2(983.537, 688)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_kve7y")
 
@@ -155,6 +190,11 @@ visible = false
 position = Vector2(744, 667)
 scale = Vector2(0.245988, 0.245988)
 texture = ExtResource("19_lfnf1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Koenig"]
+libraries = {
+"": SubResource("AnimationLibrary_6llah")
+}
 
 [node name="Cat" parent="." instance=ExtResource("2_tjkxh")]
 
