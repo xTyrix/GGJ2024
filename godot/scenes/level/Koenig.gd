@@ -1,5 +1,6 @@
 extends Node2D
 
+signal puzzle_solved
 var level_select_scene: PackedScene = null
 
 # Called when the node enters the scene tree for the first time.
@@ -46,7 +47,7 @@ func _on_ritter_pressed():
 	$Koenig/KoenigKopfGluecklich.visible = true
 	$KoenigLachte.play()
 	
-	$MenuLogic.go_back_to_level_select()
+	emit_signal("puzzle_solved")
 
 
 func _on_schrank_pressed():

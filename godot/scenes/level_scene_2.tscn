@@ -1,11 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcltpum7ytm3l"]
+[gd_scene load_steps=5 format=3 uid="uid://dcltpum7ytm3l"]
 
 [ext_resource type="Script" path="res://scenes/level_scene_2.gd" id="1_8hq0r"]
-[ext_resource type="PackedScene" uid="uid://cbfr4vf4q4txf" path="res://scenes/level/hase.tscn" id="2_7eugc"]
-[ext_resource type="PackedScene" uid="uid://ccwao5x8nsffy" path="res://scenes/level/Koenig.tscn" id="2_kia4m"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_iiwnw"]
-[ext_resource type="PackedScene" uid="uid://caqmnyi1wmxb8" path="res://scenes/level/Face.tscn" id="4_svdq7"]
-[ext_resource type="PackedScene" uid="uid://ouix3th1cui8" path="res://scenes/level/Fuss.tscn" id="4_u2edx"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="5_7e0kh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
@@ -14,10 +10,6 @@ font_color = Color(1, 1, 1, 0.486275)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_8hq0r")
-king_scene = ExtResource("2_kia4m")
-bunny_scene = ExtResource("2_7eugc")
-foot_scene = ExtResource("4_u2edx")
-face_scene = ExtResource("4_svdq7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -69,7 +61,6 @@ label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("5_7e0kh")]
-unique_name_in_owner = true
 visible = false
 fade_in_duration = 0.5
 fade_out_duration = 0.5

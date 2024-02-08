@@ -4,15 +4,13 @@ var tickle1 = 3
 var tickle2 = 3
 var tickle3 = 3
 
-signal puzzle_solved
-
 var win_screen_visible: bool = false
 
 func win_screen():
 	if tickle1 + tickle2 + tickle3 == 0 and win_screen_visible == false:
 		$"Fuss Lachen Win".play()
 		print("you have solved this level")
-		emit_signal("puzzle_solved")
+		get_parent().emit_signal("puzzle_solved")
 		win_screen_visible = true
 
 # Called when the node enters the scene tree for the first time.

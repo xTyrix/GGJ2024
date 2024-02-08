@@ -1,6 +1,7 @@
 extends Node2D
 var fehlende_items=4
 
+signal puzzle_solved
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -29,9 +30,7 @@ func _on_hase_pressed():
 	$Inventory.clear_active_sprite()
 	
 	# TODO hase und mädchen sprites tauschen
-	pass # Replace with function body.
 	fehlende_items-=1
-	print(fehlende_items)
 	if fehlende_items==0:
 		$Maedchen_Lachend.visible=true
 		$Maedchen.visible=false
@@ -40,19 +39,13 @@ func _on_hase_pressed():
 		$ChildLaughing.play()
 		$Traene.emitting=false
 		$Traene2.emitting=false
-		$MenuLogic.go_back_to_level_select()
-		
-	
-	
-	
-	
+		emit_signal("puzzle_solved")
 
 
 func _on_leiter_vor_baum_pressed():
 	if $Inventory.active_sprite_has_name("Leiter"):
 		$Leiter_vor_Baum/Leiter2.visible = true
 		$Inventory.clear_active_sprite()
-		
-		
+
 		$Feder.active=true
 		$Clickable.active=false
